@@ -6,39 +6,42 @@ body {
   background-color: #f9f9f9;
 }
 
-/* Menú hamburguesa */
+/* Encabezado fijo */
+header {
+  position: sticky;
+  top: 0; /* Asegura que el encabezado quede fijo en la parte superior */
+  background-color: white; /* Fondo blanco para el encabezado */
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para resaltar el encabezado */
+  z-index: 3000; /* Asegura que el encabezado esté por encima del menú lateral */
+}
+
 .menu-icon {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  z-index: 2000;
+  margin-right: 15px; /* Espacio entre el botón y el título */
   cursor: pointer;
-  width: 35px; /* Ancho fijo para el contenedor del ícono */
-  height: 32px; /* Altura fija para el contenedor del ícono */
 }
 
 .menu-icon span {
   display: block;
-  width: 100%; /* Líneas ocupan todo el ancho del contenedor */
-  height: 4px; /* Grosor de las líneas */
-  margin: 6px auto; /* Margen uniforme entre las líneas */
-  background-color: black; /* Color inicial: negro */
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 35px;
+  height: 4px;
+  margin: 6px auto;
+  background-color: black;
+  transition: all 0.2s ease-in-out;
 }
 
 /* Animación para la "X" cuando se activa */
 
-/* La primera línea se baja y rota 45° (forma de barra superior de la X) */
 .menu-icon.active span:nth-child(1) {
   transform: translateY(10px) rotate(45deg);
 }
 
-/* La segunda línea se desvanece */
 .menu-icon.active span:nth-child(2) {
   opacity: 0;
 }
 
-/* La tercera línea se sube y rota -45° (forma de barra inferior de la X) */
 .menu-icon.active span:nth-child(3) {
   transform: translateY(-10px) rotate(-45deg);
 }
@@ -53,7 +56,7 @@ body {
   background-color: white;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   transition: left 0.3s ease;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .menu.active {
@@ -82,12 +85,11 @@ body {
   background-color: #f0f8ff;
 }
 
-/* Encabezado */
-header {
-  background-color: #007BFF;
-  color: white;
-  text-align: center;
-  padding: 20px;
+/* Título del sitio */
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 /* Contenido principal */
