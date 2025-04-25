@@ -4,6 +4,7 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
+  scroll-behavior: smooth; /* Hace que el scroll sea suave */
 }
 
 /* Encabezado fijo */
@@ -16,6 +17,7 @@ header {
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para resaltar el encabezado */
   z-index: 3000; /* Asegura que el encabezado esté por encima del menú lateral */
+  transition: transform 0.2s ease; /* Agregamos transición para el efecto suave */
 }
 
 .menu-icon {
@@ -26,7 +28,7 @@ header {
 .menu-icon span {
   display: block;
   width: 35px;
-  height: 4px;
+  height: 3px; /* Grosor de las líneas reducido a 3px */
   margin: 6px auto;
   background-color: black;
   transition: all 0.2s ease-in-out;
@@ -88,7 +90,7 @@ header {
 /* Título del sitio */
 header h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.5rem; /* Reducimos el tamaño del título */
   font-weight: bold;
 }
 
