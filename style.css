@@ -75,3 +75,21 @@ body {
 .menu ul li a:hover {
   background-color: #f0f8ff;
 }
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+  word-wrap: break-word; /* Permite que el texto se divida en varias líneas si es necesario */
+}
+
+footer p {
+  margin: 0;
+}
