@@ -22,11 +22,32 @@ body {
   background-color: black;
   margin-bottom: 5px;
   transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Posicionamiento inicial */
+.menu-icon span:nth-child(1) {
+  top: 0;
+}
+
+.menu-icon span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-icon span:nth-child(3) {
+  bottom: 0;
 }
 
 /* Animación para la "X" */
+.menu-icon.active span:nth-child(1),
+.menu-icon.active span:nth-child(3) {
+  top: 50%; /* Reposicionar las líneas al centro */
+}
+
 .menu-icon.active span:nth-child(1) {
   transform: translateY(-50%) rotate(45deg);
+  background-color: black;
 }
 
 .menu-icon.active span:nth-child(2) {
@@ -35,6 +56,7 @@ body {
 
 .menu-icon.active span:nth-child(3) {
   transform: translateY(-50%) rotate(-45deg);
+  background-color: black;
 }
 
 /* Menú lateral */
@@ -76,6 +98,19 @@ body {
   background-color: #f0f8ff;
 }
 
+/* Encabezado */
+header {
+  background-color: #007BFF;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Contenido principal */
+main {
+  padding: 20px;
+}
+
 /* Footer */
 footer {
   background-color: #333;
@@ -86,8 +121,8 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-  word-wrap: break-word; /* Permite que el texto se divida en varias líneas si es necesario */
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 footer p {
