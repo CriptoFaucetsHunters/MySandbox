@@ -3,7 +3,7 @@ function toggleMenu() {
   const menu = document.getElementById('menu');
   const menuIcon = document.querySelector('.menu-icon');
   menu.classList.toggle('active');
-  menuIcon.classList.toggle('active');
+  menuIcon.classList.toggle('active'); // Agrega/quita la clase 'active'
 }
 
 // Cerrar el menú al hacer clic fuera de él
