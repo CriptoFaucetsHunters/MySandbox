@@ -13,51 +13,34 @@ body {
   left: 15px;
   z-index: 2000;
   cursor: pointer;
-  width: 30px; /* Ancho fijo para el contenedor del ícono */
-  height: 24px; /* Altura fija para el contenedor del ícono */
+  width: 35px; /* Ancho fijo para el contenedor del ícono */
+  height: 32px; /* Altura fija para el contenedor del ícono */
 }
 
 .menu-icon span {
   display: block;
   width: 100%; /* Líneas ocupan todo el ancho del contenedor */
-  height: 3px; /* Grosor de las líneas */
-  background-color: black;
-  position: absolute;
-  left: 0;
-  transition: all 0.3s ease;
-  transform-origin: center;
+  height: 4px; /* Grosor de las líneas */
+  margin: 6px auto; /* Margen uniforme entre las líneas */
+  background-color: black; /* Color inicial: negro */
+  transition: all 0.3s ease-in-out;
 }
 
-/* Posicionamiento inicial */
-.menu-icon span:nth-child(1) {
-  top: 0;
-}
+/* Animación para la "X" cuando se activa */
 
-.menu-icon span:nth-child(2) {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.menu-icon span:nth-child(3) {
-  bottom: 0;
-}
-
-/* Animación para la "X" */
-.menu-icon.active span:nth-child(1),
-.menu-icon.active span:nth-child(3) {
-  top: 50%; /* Reposicionar las líneas al centro */
-}
-
+/* La primera línea se baja y rota 45° (forma de barra superior de la X) */
 .menu-icon.active span:nth-child(1) {
-  transform: translateY(-50%) rotate(45deg);
+  transform: translateY(10px) rotate(45deg);
 }
 
+/* La segunda línea se desvanece */
 .menu-icon.active span:nth-child(2) {
   opacity: 0;
 }
 
+/* La tercera línea se sube y rota -45° (forma de barra inferior de la X) */
 .menu-icon.active span:nth-child(3) {
-  transform: translateY(-50%) rotate(-45deg);
+  transform: translateY(-10px) rotate(-45deg);
 }
 
 /* Menú lateral */
