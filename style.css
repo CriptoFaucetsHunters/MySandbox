@@ -23,7 +23,7 @@ body {
   height: 4px; /* Grosor de las líneas */
   margin: 6px auto; /* Margen uniforme entre las líneas */
   background-color: black; /* Color inicial: negro */
-  transition: all 0.15s ease-in-out;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Animación para la "X" cuando se activa */
