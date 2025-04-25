@@ -4,42 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Sitio Web</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-    }
-    header {
-      background-color: #007BFF;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    main {
-      padding: 20px;
-    }
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-  </style>
+  <!-- Enlazar archivo CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Menú hamburguesa -->
+  <div class="menu-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menú lateral -->
+  <div class="menu" id="menu">
+    <ul>
+      <li><a href="index.html">🏠 Inicio</a></li>
+      <li><a href="tutoriales.html">📚 Tutoriales</a></li>
+      <li><a href="reviews.html">📊 Reviews</a></li>
+    </ul>
+  </div>
+
+  <!-- Encabezado -->
   <header>
     <h1>Bienvenido a Mi Sitio Web</h1>
   </header>
+
+  <!-- Contenido principal -->
   <main>
     <p>Este es el contenido principal de mi sitio.</p>
   </main>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2024 Mi Sitio Web</p>
+    <p>Hecho en GitHub con ❤️ por Cripto Faucets Hunters</p>
   </footer>
+
+  <!-- Enlazar archivo JavaScript -->
+  <script src="scripts.js"></script>
 </body>
 </html>
