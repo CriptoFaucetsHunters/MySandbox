@@ -25,6 +25,7 @@ header {
   width: 35px; /* Ancho fijo para el contenedor del ícono */
   height: 30px; /* Altura fija para el contenedor del ícono */
   cursor: pointer;
+  margin-right: 25px; /* Espacio adicional entre el botón y el título */
 }
 
 .menu-icon span {
@@ -39,7 +40,7 @@ header {
 
 /* Posicionamiento inicial */
 .menu-icon span:nth-child(1) {
-  top: 0; /* Línea superior */
+  top: 25%; /* Línea superior */
 }
 
 .menu-icon span:nth-child(2) {
@@ -48,7 +49,7 @@ header {
 }
 
 .menu-icon span:nth-child(3) {
-  bottom: 0; /* Línea inferior */
+  top: 75%; /* Línea inferior */
 }
 
 /* Animación para la "X" cuando se activa */
