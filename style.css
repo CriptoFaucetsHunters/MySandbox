@@ -21,26 +21,46 @@ header {
 }
 
 .menu-icon {
-  margin-right: 15px; /* Espacio entre el botón y el título */
-  cursor: pointer;
+  position: relative;
   width: 35px; /* Ancho fijo para el contenedor del ícono */
-  height: 32px; /* Altura fija para el contenedor del ícono */
+  height: 30px; /* Altura fija para el contenedor del ícono */
+  cursor: pointer;
 }
 
 .menu-icon span {
-  display: block;
-  width: 35px; /* Ancho uniforme para todas las líneas */
+  position: absolute;
+  left: 0;
+  right: 0;
   height: 3px; /* Grosor uniforme para todas las líneas */
-  margin: 6px auto; /* Margen uniforme entre las líneas */
   background-color: black; /* Color inicial: negro */
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   transform-origin: center; /* Aseguramos que las líneas roten desde su centro */
+}
+
+/* Posicionamiento inicial */
+.menu-icon span:nth-child(1) {
+  top: 0; /* Línea superior */
+}
+
+.menu-icon span:nth-child(2) {
+  top: 50%; /* Línea del medio */
+  transform: translateY(-50%);
+}
+
+.menu-icon span:nth-child(3) {
+  bottom: 0; /* Línea inferior */
 }
 
 /* Animación para la "X" cuando se activa */
 
+.menu-icon.active span:nth-child(1),
+.menu-icon.active span:nth-child(3) {
+  top: 50%; /* Reposicionamos las líneas al centro */
+  transform: translateY(-50%) rotate(45deg); /* Rotación precisa desde el centro */
+}
+
 .menu-icon.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg); /* Rotación precisa desde el centro */
+  transform: translateY(-50%) rotate(45deg); /* Rotación de la línea superior */
 }
 
 .menu-icon.active span:nth-child(2) {
@@ -48,7 +68,7 @@ header {
 }
 
 .menu-icon.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg); /* Rotación precisa desde el centro */
+  transform: translateY(-50%) rotate(-45deg); /* Rotación de la línea inferior */
 }
 
 /* Menú lateral */
