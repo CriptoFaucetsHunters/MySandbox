@@ -23,7 +23,7 @@ header {
 .menu-icon {
   position: relative;
   width: 35px; /* Ancho fijo para el contenedor del ícono */
-  height: 30px; /* Altura fija para el contenedor del ícono */
+  height: 24px; /* Altura reducida del contenedor */
   cursor: pointer;
   margin-right: 25px; /* Espacio adicional entre el botón y el título */
 }
@@ -32,7 +32,7 @@ header {
   position: absolute;
   left: 0;
   right: 0;
-  height: 3px; /* Grosor uniforme para todas las líneas */
+  height: 2px; /* Grosor reducido para las líneas (entre 1px y 2px) */
   background-color: black; /* Color inicial: negro */
   transition: all 0.3s ease-in-out;
   transform-origin: center; /* Aseguramos que las líneas roten desde su centro */
@@ -40,7 +40,7 @@ header {
 
 /* Posicionamiento inicial */
 .menu-icon span:nth-child(1) {
-  top: 25%; /* Línea superior */
+  top: 0; /* Línea superior */
 }
 
 .menu-icon span:nth-child(2) {
@@ -49,7 +49,7 @@ header {
 }
 
 .menu-icon span:nth-child(3) {
-  top: 75%; /* Línea inferior */
+  bottom: 0; /* Línea inferior */
 }
 
 /* Animación para la "X" cuando se activa */
