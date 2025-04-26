@@ -23,7 +23,7 @@ header {
 .menu-icon {
   position: relative;
   width: 35px; /* Ancho fijo para el contenedor del ícono */
-  height: 24px; /* Altura reducida del contenedor */
+  height: 20px; /* Altura reducida del contenedor */
   cursor: pointer;
   margin-right: 25px; /* Espacio adicional entre el botón y el título */
 }
@@ -32,6 +32,7 @@ header {
   position: absolute;
   left: 0;
   right: 0;
+  width: 100%;
   height: 2px; /* Grosor reducido para las líneas (entre 1px y 2px) */
   background-color: black; /* Color inicial: negro */
   transition: all 0.3s ease-in-out;
