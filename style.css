@@ -23,29 +23,32 @@ header {
 .menu-icon {
   margin-right: 15px; /* Espacio entre el botón y el título */
   cursor: pointer;
+  width: 35px; /* Ancho fijo para el contenedor del ícono */
+  height: 32px; /* Altura fija para el contenedor del ícono */
 }
 
 .menu-icon span {
   display: block;
-  width: 30px; /* Ancho uniforme para todas las líneas */
+  width: 35px; /* Ancho uniforme para todas las líneas */
   height: 3px; /* Grosor uniforme para todas las líneas */
   margin: 6px auto; /* Margen uniforme entre las líneas */
-  background-color: black;
+  background-color: black; /* Color inicial: negro */
   transition: all 0.2s ease-in-out;
+  transform-origin: center; /* Aseguramos que las líneas roten desde su centro */
 }
 
 /* Animación para la "X" cuando se activa */
 
 .menu-icon.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg); /* Ajustamos el valor de translateY */
+  transform: translateY(8px) rotate(45deg); /* Rotación precisa desde el centro */
 }
 
 .menu-icon.active span:nth-child(2) {
-  opacity: 0;
+  opacity: 0; /* Desaparece la línea del medio */
 }
 
 .menu-icon.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg); /* Ajustamos el valor de translateY */
+  transform: translateY(-8px) rotate(-45deg); /* Rotación precisa desde el centro */
 }
 
 /* Menú lateral */
