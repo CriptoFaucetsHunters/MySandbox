@@ -22,8 +22,8 @@ header {
 
 .menu-icon {
   position: relative;
-  width: 35px; /* Ancho fijo para el contenedor del ícono */
-  height: 20px; /* Altura reducida del contenedor */
+  width: 28px; /* Ancho fijo para el contenedor del ícono */
+  height: 22px; /* Altura reducida del contenedor */
   cursor: pointer;
   margin-right: 25px; /* Espacio adicional entre el botón y el título */
 }
