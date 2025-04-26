@@ -16,7 +16,7 @@ body {
   background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
   background-position: center; /* Centra la imagen */
   z-index: 1; /* Asegura que quede detrás de la barra */
-  margin-top: -60px; /* Desplaza la imagen hacia arriba para que quede parcialmente oculta por la barra */
+  margin-top: -40px; /* Desplaza la imagen hacia arriba para que quede parcialmente oculta por la barra */
 }
 
 /* Encabezado fijo */
