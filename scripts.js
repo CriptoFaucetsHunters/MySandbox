@@ -20,6 +20,16 @@ document.addEventListener('click', function(event) {
   }
 });
 
+// Cerrar el menú al hacer clic en un enlace
+document.querySelectorAll('.menu a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    const menu = document.querySelector('.menu');
+    const menuIcon = document.querySelector('.menu-icon');
+    menu.classList.remove('active'); // Cierra el menú
+    menuIcon.classList.remove('active'); // Restablece el ícono del menú
+  });
+});
+
 // Detectar el scroll y aplicar un ligero vaivén
 let header = document.querySelector('header');
 let lastScrollTop = 0;
