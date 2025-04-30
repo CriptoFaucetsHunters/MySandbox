@@ -23,7 +23,7 @@ body {
 /* Encabezado */
 .site-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
   background-color: var(--primary-color);
@@ -36,17 +36,6 @@ body {
 }
 
 .site-header a {
-  color: white;
-  text-decoration: none;
-}
-
-.main-navigation ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-.main-navigation a {
   color: white;
   text-decoration: none;
 }
@@ -92,27 +81,9 @@ body {
   text-align: center;
 }
 
-.footer-navigation ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.footer-navigation a {
-  color: white;
-  text-decoration: none;
-}
-
 /* Diseño responsivo */
 @media (max-width: 768px) {
   .page-layout {
     flex-direction: column;
-  }
-
-  .site-header,
-  .footer-navigation ul {
-    flex-direction: column;
-    gap: 0.5rem;
   }
 }
