@@ -25,8 +25,9 @@ header {
 }
 
 header h1 {
-    font-size: 16px; /* Tamaño del título reducido */
+    font-size: 20px; /* Tamaño del título reducido */
     margin: 0;
+    text-align: center;  /* Asegura que el texto esté centrado */
 }
 
 nav {
