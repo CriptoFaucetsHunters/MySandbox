@@ -5,12 +5,9 @@ function loadHTMLFile(elementId, filePath) {
         .then(response => response.text())
         .then(data => {
             document.getElementById(elementId).innerHTML = data;
-
-            // Forzamos un redibujado para que Safari reconozca el position: sticky
-            window.getComputedStyle(document.body).display;
         })
         .catch(error => console.error('Error al cargar:', error));
 }
 
-loadHTMLFile('header-placeholder', 'header.html');
+// Cargamos solo el footer
 loadHTMLFile('footer-placeholder', 'footer.html');
