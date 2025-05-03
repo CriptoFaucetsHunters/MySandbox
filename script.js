@@ -1,2 +1,14 @@
-// script.js (vacío por ahora, pero listo para agregar funciones)
-console.log("Cripto Faucets Hunters cargado correctamente.");
+// script.js
+fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error al cargar el header:', error));
+
+fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error al cargar el footer:', error));
