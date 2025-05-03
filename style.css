@@ -17,17 +17,23 @@ body {
 header {
     background-color: #2d2d2d; /* gris oscuro */
     color: white;
-    padding: 10px;
-    height: 40px;
+    padding: 10px 20px;
+    height: auto;
+    min-height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 header h1 {
-    font-size: 20px; /* Tamaño del título reducido */
+    font-size: 20px;
     margin: 0;
-    text-align: center;  /* Asegura que el texto esté centrado */
+    text-align: center;
 }
 
 nav {
@@ -57,5 +63,5 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    margin-top: 0;
+    margin-top: 40px;
 }
