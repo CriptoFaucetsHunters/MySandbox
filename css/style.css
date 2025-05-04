@@ -15,8 +15,9 @@ body {
     min-height: 100vh;
 }
 
+/* Estilos para el header */
 header {
-    background-color: #2d2d2d;
+    background-color: #2d2d2d; /* gris oscuro */
     color: white;
     padding: 10px 20px;
     min-height: 40px;
@@ -30,6 +31,7 @@ header {
     transition: all 0.3s ease;
 }
 
+/* Estilos para el menú de navegación */
 nav {
     background-color: #165a94;
     padding: 10px;
@@ -44,6 +46,7 @@ nav a {
     font-weight: bold;
 }
 
+/* Estilos para el contenido principal */
 main {
     max-width: 800px;
     width: 100%;
@@ -54,8 +57,9 @@ main {
     flex: 1;
 }
 
+/* Estilos para el footer */
 footer {
-    background-color: #2d2d2d;
+    background-color: #2d2d2d; /* gris oscuro */
     color: white;
     text-align: center;
     padding: 10px;
