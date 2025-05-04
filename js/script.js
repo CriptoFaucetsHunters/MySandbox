@@ -13,4 +13,4 @@ function loadHTMLFile(elementId, filePath) {
 }
 
 // loadHTMLFile('header-placeholder', '../header.html');
-// loadHTMLFile('footer-placeholder', '../footer.html');
+loadHTMLFile('footer-placeholder', '../footer.html');
