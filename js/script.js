@@ -12,5 +12,5 @@ function loadHTMLFile(elementId, filePath) {
         .catch(error => console.error('Error al cargar:', error));
 }
 
-// loadHTMLFile('header-placeholder', '../header.html');
+loadHTMLFile('header-placeholder', '../header.html');
 loadHTMLFile('footer-placeholder', '../footer.html');
