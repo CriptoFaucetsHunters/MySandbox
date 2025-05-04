@@ -5,8 +5,6 @@ function loadHTMLFile(elementId, filePath) {
         .then(response => response.text())
         .then(data => {
             document.getElementById(elementId).innerHTML = data;
-
-            // Forzamos un redibujado para Safari
             window.getComputedStyle(document.body).display;
         })
         .catch(error => console.error('Error al cargar:', error));
