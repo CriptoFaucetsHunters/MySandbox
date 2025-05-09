@@ -35,10 +35,23 @@ function initializeMenuButton() {
   if (menuButton && sidebar) { 
     menuButton.addEventListener("click", function() {
       sidebar.classList.toggle("active");
-      menuButton.classList.toggle("active");
+      menuButton.classList.toggle("active"); // Aplica el cambio visual en el botón
     });
   }
 }
+
+// Detectar clics fuera del menú para cerrarlo
+document.addEventListener("click", function(e){
+  const sidebar = document.getElementById("sidebar");
+  const menuButton = document.getElementById("menu-button");
+
+  if (sidebar && sidebar.classList.contains("active") &&
+      !sidebar.contains(e.target) &&
+      !menuButton.contains(e.target)) {
+    sidebar.classList.remove("active");
+    menuButton.classList.remove("active"); // Restaurar el botón hamburguesa al estado original
+  }
+});
 
 // Asignar manejador a los submenús
 function attachSubmenuListeners() {
