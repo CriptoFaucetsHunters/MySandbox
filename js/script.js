@@ -2,37 +2,16 @@
 document.addEventListener("DOMContentLoaded", function(){
   var basePath = window.fragmentBasePath || "";
 
-  loadHTMLFragment("header", basePath + "header.html");
-  loadHTMLFragment("footer", basePath + "footer.html");
-
-  document.addEventListener("click", function(e){
-    const sidebar = document.getElementById("sidebar");
-    const menuButton = document.getElementById("menu-button");
-    if (!sidebar) return;
-    if (sidebar.classList.contains("active") &&
-        !sidebar.contains(e.target) &&
-        !menuButton.contains(e.target)) {
-      toggleSidebar();
-    }
+  // Cargar header y footer, asegurándonos de inicializar el botón del menú después
+  loadHTMLFragment("header", basePath + "header.html", function() {
+    initializeMenuButton();
   });
 
-  // Asignar manejador al botón hamburguesa con prueba visual
-  const menuButton = document.getElementById("menu-button");
-  const sidebar = document.getElementById("sidebar");
-
-  if (menuButton && sidebar) { 
-    menuButton.addEventListener("click", function() {
-      menuButton.innerHTML = "¡Clic Detectado!";
-      sidebar.classList.toggle("active");
-      document.body.insertAdjacentHTML("beforeend", "<p style='color:blue;'>Menú activado</p>");
-    });
-  } else {
-    document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>Error: No se encontró el botón o el menú</p>");
-  }
+  loadHTMLFragment("footer", basePath + "footer.html");
 });
 
-// Carga fragmentos HTML como el header y el footer
-function loadHTMLFragment(id, file) {
+// Carga fragmentos HTML como el header y el footer con un callback
+function loadHTMLFragment(id, file, callback) {
   fetch(file)
     .then(response => {
       if (!response.ok) {
@@ -42,23 +21,36 @@ function loadHTMLFragment(id, file) {
     })
     .then(data => {
       document.getElementById(id).innerHTML = data;
-      if(id === "header") {
-         addMenuToggle();
-         updateHomeLink();
-         attachSubmenuListeners();
-      }
+      if (callback) callback(); // Ejecuta la función solo después de que el fragmento ha sido insertado
     })
     .catch(error => console.error('Error al cargar ' + file + ':', error));
 }
 
-// Función para activar/desactivar el menú lateral con prueba visual
-function toggleSidebar() {
+// Inicializar el botón del menú hamburguesa solo cuando el header esté disponible
+function initializeMenuButton() {
+  const menuButton = document.getElementById("menu-button");
   const sidebar = document.getElementById("sidebar");
-  document.body.insertAdjacentHTML("beforeend", "<p style='color:blue;'>Toggle Sidebar ejecutado</p>");
-  if (sidebar) {
-    sidebar.classList.toggle("active");
+
+  if (menuButton && sidebar) { 
+    menuButton.addEventListener("click", function() {
+      sidebar.classList.toggle("active");
+    });
+  } else {
+    document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>Error: No se encontró el botón o el menú tras la carga del header</p>");
   }
 }
+
+// Detectar clics fuera del menú para cerrarlo
+document.addEventListener("click", function(e){
+  const sidebar = document.getElementById("sidebar");
+  const menuButton = document.getElementById("menu-button");
+
+  if (sidebar && sidebar.classList.contains("active") &&
+      !sidebar.contains(e.target) &&
+      !menuButton.contains(e.target)) {
+    sidebar.classList.remove("active");
+  }
+});
 
 // Asignar manejador a los submenús
 function attachSubmenuListeners() {
