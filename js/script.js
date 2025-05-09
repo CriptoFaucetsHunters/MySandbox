@@ -1,10 +1,10 @@
 // Espera a que el DOM se cargue completamente
 document.addEventListener("DOMContentLoaded", function(){
   var basePath = window.fragmentBasePath || "";
-  
+
   loadHTMLFragment("header", basePath + "header.html");
   loadHTMLFragment("footer", basePath + "footer.html");
-  
+
   document.addEventListener("click", function(e){
     const sidebar = document.getElementById("sidebar");
     const menuButton = document.getElementById("menu-button");
@@ -19,14 +19,15 @@ document.addEventListener("DOMContentLoaded", function(){
   // Asignar manejador al botón hamburguesa con prueba visual
   const menuButton = document.getElementById("menu-button");
   const sidebar = document.getElementById("sidebar");
-  
+
   if (menuButton && sidebar) { 
     menuButton.addEventListener("click", function() {
-      document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>Botón clicado</p>");
+      menuButton.innerHTML = "¡Clic Detectado!";
       sidebar.classList.toggle("active");
+      document.body.insertAdjacentHTML("beforeend", "<p style='color:blue;'>Menú activado</p>");
     });
   } else {
-    console.error("Error: El menú lateral o el botón no existen en el DOM.");
+    document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>Error: No se encontró el botón o el menú</p>");
   }
 });
 
@@ -53,7 +54,7 @@ function loadHTMLFragment(id, file) {
 // Función para activar/desactivar el menú lateral con prueba visual
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
-  document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>Botón clicado</p>");
+  document.body.insertAdjacentHTML("beforeend", "<p style='color:blue;'>Toggle Sidebar ejecutado</p>");
   if (sidebar) {
     sidebar.classList.toggle("active");
   }
