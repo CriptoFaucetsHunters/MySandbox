@@ -20,7 +20,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100%; /* Ocupa el 100% del ancho */
   background-color: rgba(44, 62, 80, 0.9);
   color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
@@ -29,6 +29,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 60px;
+  margin: 0; /* Sin márgenes */
 }
 
 /* Título en el header */
@@ -36,7 +37,7 @@ body {
   font-size: 1.6rem;
   text-align: center;
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* MENÚ LATERAL */
@@ -69,7 +70,7 @@ body {
   text-decoration: none;
   display: flex;
   align-items: center;
-  padding: 12px 20px; /* Ajustado para buena legibilidad */
+  padding: 12px 20px; /* Buena legibilidad */
   font-size: 1.2rem;
 }
 
@@ -90,25 +91,23 @@ body {
   justify-content: center;
 }
 
-/* Líneas del botón hamburguesa */
+/* Líneas del botón hamburguesa con grosor preferido (primera imagen) */
 .hamburger-line {
   display: block;
   width: 30px;
-  height: 5px; /* Grosor restaurado al valor original */
+  height: 5px; /* Grosor igual al de la primera captura */
   margin: 6px auto;
   background-color: white;
   transition: 0.3s;
 }
 
-/* Animación para convertir el botón en una "X" */
+/* Animación para transformar el botón en "X" */
 #menu-button.active .hamburger-line:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-
 #menu-button.active .hamburger-line:nth-child(2) {
   opacity: 0;
 }
-
 #menu-button.active .hamburger-line:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
@@ -117,23 +116,24 @@ body {
 .submenu {
   display: none;
 }
-
 .submenu.open {
   display: block;
 }
-
 .submenu-toggle {
   margin-left: auto;
   transition: 0.3s;
 }
 
-/* Imagen destacada */
+/* Imagen destacada: 100% ancho, sin márgenes y con margin-top -60px */
 .featured-image {
   width: 100%;
-  max-width: 600px;
+  margin: -60px 0 0 0; /* Aplica margin-top: -60px para evitar que el header tape la imagen */
   height: auto;
-  display: block;
-  margin: 0 auto; /* Centrada */
+}
+
+/* Contenedor para el cuerpo del texto (excluye header e imagen destacada) */
+.content-wrapper {
+  margin: 0 15px; /* Margen lateral para el texto */
 }
 
 /* FOOTER */
@@ -143,4 +143,6 @@ body {
   text-align: center;
   padding: 15px;
   font-size: 0.9rem;
+  width: 100%;
+  margin: 0; /* Sin márgenes que afecten el ancho */
 }
