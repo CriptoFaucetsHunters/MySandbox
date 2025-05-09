@@ -59,16 +59,17 @@ body {
 
 /* Estilos de los enlaces del menú */
 .sidebar ul {
-  list-style: none; /* Elimina las viñetas */
+  list-style: none; /* Quita las viñetas */
   padding: 0;
+  margin: 0;
 }
 
 .sidebar ul li a {
-  color: white;
+  color: white; /* Igual al color del título */
   text-decoration: none;
   display: flex;
   align-items: center;
-  padding: 12px 20px; /* Aumenté el tamaño para mejor legibilidad */
+  padding: 12px 20px; /* Ajustado para buena legibilidad */
   font-size: 1.2rem;
 }
 
@@ -89,17 +90,17 @@ body {
   justify-content: center;
 }
 
-/* Restauración del grosor de las líneas */
+/* Líneas del botón hamburguesa */
 .hamburger-line {
   display: block;
   width: 30px;
-  height: 5px; /* Grosor restaurado */
+  height: 5px; /* Grosor restaurado al valor original */
   margin: 6px auto;
   background-color: white;
   transition: 0.3s;
 }
 
-/* Corrección de la animación de la "X" */
+/* Animación para convertir el botón en una "X" */
 #menu-button.active .hamburger-line:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -126,13 +127,13 @@ body {
   transition: 0.3s;
 }
 
-/* Corrección de la imagen destacada */
+/* Imagen destacada */
 .featured-image {
   width: 100%;
   max-width: 600px;
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto; /* Centrada */
 }
 
 /* FOOTER */
