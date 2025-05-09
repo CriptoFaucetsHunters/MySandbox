@@ -15,6 +15,18 @@ document.addEventListener("DOMContentLoaded", function(){
       toggleSidebar();
     }
   });
+
+  // Asignar manejador al botón hamburguesa
+  const menuButton = document.getElementById("menu-button");
+  const sidebar = document.getElementById("sidebar");
+  
+  if (menuButton && sidebar) { 
+    menuButton.addEventListener("click", function() {
+      sidebar.classList.toggle("active");
+    });
+  } else {
+    console.error("Error: El menú lateral o el botón no existen en el DOM.");
+  }
 });
 
 // Carga fragmentos HTML como el header y el footer
@@ -44,14 +56,6 @@ function toggleSidebar() {
     sidebar.classList.toggle("active");
   }
 }
-
-// Asignar manejador al botón hamburguesa
-document.addEventListener("DOMContentLoaded", function(){
-  const menuButton = document.getElementById("menu-button");
-  if (menuButton) {
-    menuButton.addEventListener("click", toggleSidebar);
-  }
-});
 
 // Asignar manejador a los submenús
 function attachSubmenuListeners() {
