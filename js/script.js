@@ -16,12 +16,13 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
 
-  // Asignar manejador al botón hamburguesa
+  // Asignar manejador al botón hamburguesa con prueba visual
   const menuButton = document.getElementById("menu-button");
   const sidebar = document.getElementById("sidebar");
   
   if (menuButton && sidebar) { 
     menuButton.addEventListener("click", function() {
+      document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>Botón clicado</p>");
       sidebar.classList.toggle("active");
     });
   } else {
@@ -49,9 +50,10 @@ function loadHTMLFragment(id, file) {
     .catch(error => console.error('Error al cargar ' + file + ':', error));
 }
 
-// Función para activar/desactivar el menú lateral
+// Función para activar/desactivar el menú lateral con prueba visual
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
+  document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>Botón clicado</p>");
   if (sidebar) {
     sidebar.classList.toggle("active");
   }
