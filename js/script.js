@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
   // Cargar header y footer, asegurándonos de inicializar el botón del menú después
   loadHTMLFragment("header", basePath + "header.html", function() {
     initializeMenuButton();
+    attachSubmenuListeners();
   });
 
   loadHTMLFragment("footer", basePath + "footer.html");
@@ -34,23 +35,10 @@ function initializeMenuButton() {
   if (menuButton && sidebar) { 
     menuButton.addEventListener("click", function() {
       sidebar.classList.toggle("active");
+      menuButton.classList.toggle("active");
     });
-  } else {
-    document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>Error: No se encontró el botón o el menú tras la carga del header</p>");
   }
 }
-
-// Detectar clics fuera del menú para cerrarlo
-document.addEventListener("click", function(e){
-  const sidebar = document.getElementById("sidebar");
-  const menuButton = document.getElementById("menu-button");
-
-  if (sidebar && sidebar.classList.contains("active") &&
-      !sidebar.contains(e.target) &&
-      !menuButton.contains(e.target)) {
-    sidebar.classList.remove("active");
-  }
-});
 
 // Asignar manejador a los submenús
 function attachSubmenuListeners() {
