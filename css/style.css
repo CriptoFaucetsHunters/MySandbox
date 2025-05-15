@@ -13,12 +13,12 @@ body {
     color: #333333;
     background-color: #F4F4F4;
     line-height: 1.6;
-    padding-top: 60px; /* Espacio para el header fijo */
+    padding: 0; /* Eliminamos el padding-top del body */
 }
 
 main {
-    margin: 0 15px; /* Margen lateral para el contenido principal */
     flex-grow: 1; /* Permite que el main crezca para ocupar el espacio restante */
+    margin-top: 60px; /* Espacio para el header fijo */
 }
 
 /* HEADER */
@@ -26,25 +26,40 @@ main {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Ocupa el 100% del ancho */
+    width: 100%;
     background-color: rgba(44, 62, 80, 0.9);
     color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Espacio entre elementos del header */
-    height: 60px;
-    margin: 0; /* Sin márgenes */
-    padding: 0 15px; /* Añade padding lateral al header */
 }
 
-/* Título en el header */
+.header-layout {
+    display: flex; /* Usamos Flexbox para el layout del header */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Espacio entre el botón y el título */
+    padding: 0 15px;
+    height: 60px;
+}
+
+.menu-button-container {
+    /* Contenedor para el botón del menú */
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    align-items: center;
+    margin-right: 15px; /* Espacio a la derecha del botón */
+}
+
+.site-title-container {
+    /* Contenedor para el título del sitio */
+    flex-grow: 1; /* El título ocupa el espacio restante */
+    display: flex;
+    justify-content: center; /* Centra el título horizontalmente */
+    align-items: center;
+}
+
 .site-title {
     font-size: 1.6rem;
-    text-align: center;
-    margin: 0;
-    flex-grow: 1; /* Permite que el título se centre */
+    margin: 0; /* Removemos el margen para que se centre correctamente */
 }
 
 /* MENÚ LATERAL */
@@ -58,43 +73,42 @@ main {
     color: white;
     transition: left 0.3s ease-in-out;
     z-index: 1100;
-    padding-top: 70px; /* Espacio para el botón de cierre */
+    padding-top: 70px;
 }
 
 .sidebar.active {
     left: 0;
 }
 
-/* Estilos de los enlaces del menú */
 .sidebar ul {
-    list-style: none; /* Quita las viñetas */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .sidebar ul li a {
-    color: white; /* Igual al color del título */
+    color: white;
     text-decoration: none;
     display: flex;
     align-items: center;
-    padding: 12px 20px; /* Buena legibilidad */
-    font-size: 1.1rem; /* Ligeramente más pequeño */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador ligero */
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .sidebar ul li:last-child a {
-    border-bottom: none; /* Quita el borde del último elemento */
+    border-bottom: none;
 }
 
 .sidebar ul li a i {
-    margin-right: 10px; /* Espacio entre icono y texto */
-    width: 1.2em; /* Asegura un ancho mínimo para alinear iconos */
+    margin-right: 10px;
+    width: 1.2em;
     text-align: center;
 }
 
 /* BOTÓN HAMBURGUESA */
 #menu-button {
-    position: relative; /* Para posicionar el icono de cierre */
+    position: relative;
     width: 40px;
     height: 40px;
     background: none;
@@ -107,17 +121,15 @@ main {
     justify-content: center;
 }
 
-/* Líneas del botón hamburguesa */
 .hamburger-line {
     display: block;
     width: 30px;
-    height: 4px; /* Grosor ajustado */
-    margin: 5px auto; /* Margen ajustado */
+    height: 4px;
+    margin: 5px auto;
     background-color: white;
     transition: 0.3s;
 }
 
-/* Icono de cierre */
 #close-icon {
     position: absolute;
     opacity: 0;
@@ -141,7 +153,7 @@ main {
 /* Submenús */
 .submenu {
     display: none;
-    padding-left: 20px; /* Indentación del submenú */
+    padding-left: 20px;
 }
 
 .submenu.open {
@@ -149,25 +161,29 @@ main {
 }
 
 .submenu li a {
-    border-bottom: none; /* Sin separador en submenús */
-    font-size: 1rem; /* Tamaño de fuente más pequeño */
-    padding: 10px 20px; /* Padding reducido */
+    border-bottom: none;
+    font-size: 1rem;
+    padding: 10px 20px;
 }
 
 .submenu-toggle {
     margin-left: auto;
-    transition: transform 0.3s ease-in-out; /* Transición para la rotación */
+    transition: transform 0.3s ease-in-out;
 }
 
 .submenu-toggle.open {
-    transform: rotate(90deg); /* Rota el icono cuando el submenú está abierto */
+    transform: rotate(90deg);
 }
 
 /* Imagen destacada */
 .featured-image {
     width: 100%;
-    display: block; /* Evita espacio extra debajo de la imagen */
-    margin-top: -60px; /* Compensa la altura del header */
+    display: block;
+}
+
+/* Estilos para el contenedor del texto principal */
+.welcome-content {
+    margin: 0 15px; /* Margen para el contenido del texto */
 }
 
 /* FOOTER */
@@ -178,7 +194,8 @@ main {
     padding: 15px;
     font-size: 0.9rem;
     width: 100%;
-    margin-top: 20px; /* Espacio superior al footer */
+    margin-top: 20px;
+    word-wrap: break-word;
 }
 
 /* Estilos para las tarjetas de las áreas de conocimiento */
@@ -242,5 +259,5 @@ tbody tr:nth-child(even) {
 
 /* Estilos generales para iconos */
 i {
-    vertical-align: middle; /* Alinea verticalmente los iconos con el texto */
+    vertical-align: middle;
 }
