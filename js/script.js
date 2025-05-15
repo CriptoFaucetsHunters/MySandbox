@@ -45,7 +45,7 @@ document.addEventListener("click", function(e) {
         if (!sidebar.contains(e.target) && !menuButton.contains(e.target)) {
             sidebar.classList.remove("active");
             menuButton.classList.remove("active");
-            closeAllSubmenus(); // Cierra los submenús al cerrar el menú principal
+            closeAllSubmenus();
         }
     }
 });
@@ -60,11 +60,11 @@ function attachSubmenuListeners() {
             const icon = this.querySelector('.submenu-toggle');
             const isOpen = submenu.classList.contains('open');
 
-            closeAllSubmenus(submenu); // Cierra otros submenús abiertos
+            closeAllSubmenus(submenu);
 
             submenu.classList.toggle('open');
             if (icon) {
-                icon.classList.toggle('open'); // Usa la clase 'open' para el icono también
+                icon.classList.toggle('open');
             }
         });
     });
