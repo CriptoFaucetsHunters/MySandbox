@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
             const headerCargado = document.createElement("p");
             headerCargado.textContent = "Header cargado. Inicializando menú...";
             document.body.appendChild(headerCargado);
-            initializeMenuButton(); // Llamamos a la función aquí
+            // Llamamos a initializeMenuButton() con un retraso
+            setTimeout(initializeMenuButton, 100); // Esperamos 100ms
             attachSubmenuListeners();
         })
         .catch(error => {
