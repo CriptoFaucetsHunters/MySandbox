@@ -1,41 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var basePath = window.fragmentBasePath || "";
-    const inicioCarga = document.createElement("p");
-    inicioCarga.textContent = "Inicio de la carga del script...";
-    document.body.appendChild(inicioCarga);
-
-    fetch(basePath + "header.html")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Error " + response.status + " al cargar header.html");
-            }
-            return response.text();
-        })
-        .then(data => {
-            document.getElementById("header").innerHTML = data;
-            const headerCargado = document.createElement("p");
-            headerCargado.textContent = "Header cargado. Inicializando menú...";
-            document.body.appendChild(headerCargado);
-            // Llamamos a initializeMenuButton() con un retraso
-            setTimeout(initializeMenuButton, 100); // Esperamos 100ms
-            attachSubmenuListeners();
-        })
-        .catch(error => {
-            const errorCarga = document.createElement("p");
-            errorCarga.textContent = "Error al cargar el header: " + error.message;
-            document.body.appendChild(errorCarga);
-            console.error('Error al cargar header.html:', error);
-        });
-
-    loadHTMLFragment("footer", basePath + "footer.html");
+    initializeMenuButton();
+    attachSubmenuListeners();
 });
 
 function initializeMenuButton() {
     const menuButton = document.getElementById("menu-button");
     const sidebar = document.getElementById("sidebar");
-    const mensajeElemento = document.createElement("p");
-    mensajeElemento.textContent = menuButton ? "¡Botón del menú encontrado!" : "¡Botón del menú NO encontrado!";
-    document.body.appendChild(mensajeElemento);
 
     if (menuButton && sidebar) {
         menuButton.addEventListener("click", function(e) {
@@ -94,4 +64,25 @@ function closeAllSubmenus(currentSubmenu = null) {
             toggle.classList.remove('open');
         }
     });
+}
+
+// Cargar el footer (esto se mantiene igual)
+document.addEventListener("DOMContentLoaded", function() {
+    var basePath = window.fragmentBasePath || "";
+    loadHTMLFragment("footer", basePath + "footer.html");
+});
+
+function loadHTMLFragment(id, file, callback) {
+    fetch(file)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error " + response.status + " al cargar " + file);
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById(id).innerHTML = data;
+            if (callback) callback();
+        })
+        .catch(error => console.error('Error al cargar ' + file + ':', error));
 }
