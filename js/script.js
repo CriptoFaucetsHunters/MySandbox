@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
     var basePath = window.fragmentBasePath || "";
+    const inicioCarga = document.createElement("p");
+    inicioCarga.textContent = "Inicio de la carga del script...";
+    document.body.appendChild(inicioCarga);
 
     loadHTMLFragment("header", basePath + "header.html", function() {
+        const headerCargado = document.createElement("p");
+        headerCargado.textContent = "Header cargado. Inicializando menú...";
+        document.body.appendChild(headerCargado);
         initializeMenuButton();
         attachSubmenuListeners();
     });
@@ -27,9 +33,9 @@ function loadHTMLFragment(id, file, callback) {
 function initializeMenuButton() {
     const menuButton = document.getElementById("menu-button");
     const sidebar = document.getElementById("sidebar");
-    const mensajeElemento = document.createElement("p"); // Creamos un elemento <p> para el mensaje
-    mensajeElemento.textContent = menuButton ? "¡Botón del menú encontrado!" : "¡Botón del menú NO encontrado!"; // Establecemos el texto
-    document.body.appendChild(mensajeElemento); // Añadimos el elemento al body (o a donde prefieras)
+    const mensajeElemento = document.createElement("p");
+    mensajeElemento.textContent = menuButton ? "¡Botón del menú encontrado!" : "¡Botón del menú NO encontrado!";
+    document.body.appendChild(mensajeElemento);
 
     if (menuButton && sidebar) {
         menuButton.addEventListener("click", function(e) {
