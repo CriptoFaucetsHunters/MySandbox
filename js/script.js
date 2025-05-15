@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var basePath = window.fragmentBasePath || "";
 
     loadHTMLFragment("header", basePath + "header.html", function() {
-        initializeMenuButton();
+        initializeMenuButton(); // Llamamos a la función aquí, dentro del callback
         attachSubmenuListeners();
     });
 
@@ -19,7 +19,7 @@ function loadHTMLFragment(id, file, callback) {
         })
         .then(data => {
             document.getElementById(id).innerHTML = data;
-            if (callback) callback();
+            if (callback) callback(); // Ejecutamos el callback después de cargar el HTML
         })
         .catch(error => console.error('Error al cargar ' + file + ':', error));
 }
