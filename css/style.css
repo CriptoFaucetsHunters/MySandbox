@@ -1,148 +1,246 @@
 /* Configuración inicial */
 html, body {
-  height: 100%;
-  overflow-x: hidden; /* Evita el scroll horizontal */
+    height: 100%;
+    overflow-x: hidden; /* Evita el scroll horizontal */
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  color: #333333;
-  background-color: #F4F4F4;
-  line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    color: #333333;
+    background-color: #F4F4F4;
+    line-height: 1.6;
+    padding-top: 60px; /* Espacio para el header fijo */
+}
+
+main {
+    margin: 0 15px; /* Margen lateral para el contenido principal */
+    flex-grow: 1; /* Permite que el main crezca para ocupar el espacio restante */
 }
 
 /* HEADER */
 .main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%; /* Ocupa el 100% del ancho */
-  background-color: rgba(44, 62, 80, 0.9);
-  color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
-  margin: 0; /* Sin márgenes */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa el 100% del ancho */
+    background-color: rgba(44, 62, 80, 0.9);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espacio entre elementos del header */
+    height: 60px;
+    margin: 0; /* Sin márgenes */
+    padding: 0 15px; /* Añade padding lateral al header */
 }
 
 /* Título en el header */
 .site-title {
-  font-size: 1.6rem;
-  text-align: center;
-  width: 100%;
-  margin: 0;
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 0;
+    flex-grow: 1; /* Permite que el título se centre */
 }
 
 /* MENÚ LATERAL */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100vh;
-  background-color: #2C3E50;
-  color: white;
-  transition: left 0.3s ease-in-out;
-  z-index: 1100;
-  padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #2C3E50;
+    color: white;
+    transition: left 0.3s ease-in-out;
+    z-index: 1100;
+    padding-top: 70px; /* Espacio para el botón de cierre */
 }
 
 .sidebar.active {
-  left: 0;
+    left: 0;
 }
 
 /* Estilos de los enlaces del menú */
 .sidebar ul {
-  list-style: none; /* Quita las viñetas */
-  padding: 0;
-  margin: 0;
+    list-style: none; /* Quita las viñetas */
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar ul li a {
-  color: white; /* Igual al color del título */
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  padding: 12px 20px; /* Buena legibilidad */
-  font-size: 1.2rem;
+    color: white; /* Igual al color del título */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 12px 20px; /* Buena legibilidad */
+    font-size: 1.1rem; /* Ligeramente más pequeño */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador ligero */
+}
+
+.sidebar ul li:last-child a {
+    border-bottom: none; /* Quita el borde del último elemento */
+}
+
+.sidebar ul li a i {
+    margin-right: 10px; /* Espacio entre icono y texto */
+    width: 1.2em; /* Asegura un ancho mínimo para alinear iconos */
+    text-align: center;
 }
 
 /* BOTÓN HAMBURGUESA */
 #menu-button {
-  position: absolute;
-  left: 15px;
-  top: 10px;
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1500;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    position: relative; /* Para posicionar el icono de cierre */
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Líneas del botón hamburguesa con grosor preferido (primera imagen) */
+/* Líneas del botón hamburguesa */
 .hamburger-line {
-  display: block;
-  width: 30px;
-  height: 5px; /* Grosor igual al de la primera captura */
-  margin: 6px auto;
-  background-color: white;
-  transition: 0.3s;
+    display: block;
+    width: 30px;
+    height: 4px; /* Grosor ajustado */
+    margin: 5px auto; /* Margen ajustado */
+    background-color: white;
+    transition: 0.3s;
 }
 
-/* Animación para transformar el botón en "X" */
+/* Icono de cierre */
+#close-icon {
+    position: absolute;
+    opacity: 0;
+    transform: rotate(45deg);
+}
+
+#menu-button.active #close-icon {
+    opacity: 1;
+}
+
 #menu-button.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg);
 }
 #menu-button.active .hamburger-line:nth-child(2) {
-  opacity: 0;
+    opacity: 0;
 }
 #menu-button.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+    transform: rotate(-45deg);
 }
 
 /* Submenús */
 .submenu {
-  display: none;
+    display: none;
+    padding-left: 20px; /* Indentación del submenú */
 }
+
 .submenu.open {
-  display: block;
+    display: block;
 }
+
+.submenu li a {
+    border-bottom: none; /* Sin separador en submenús */
+    font-size: 1rem; /* Tamaño de fuente más pequeño */
+    padding: 10px 20px; /* Padding reducido */
+}
+
 .submenu-toggle {
-  margin-left: auto;
-  transition: 0.3s;
+    margin-left: auto;
+    transition: transform 0.3s ease-in-out; /* Transición para la rotación */
 }
 
-/* Imagen destacada: 100% ancho, sin márgenes y con margin-top -60px */
+.submenu-toggle.open {
+    transform: rotate(90deg); /* Rota el icono cuando el submenú está abierto */
+}
+
+/* Imagen destacada */
 .featured-image {
-  width: 100%;
-  margin: -60px 0 0 0; /* Aplica margin-top: -60px para evitar que el header tape la imagen */
-  height: auto;
-}
-
-/* Contenedor para el cuerpo del texto (excluye header e imagen destacada) */
-.content-wrapper {
-  margin: 0 15px; /* Margen lateral para el texto */
+    width: 100%;
+    display: block; /* Evita espacio extra debajo de la imagen */
+    margin-top: -60px; /* Compensa la altura del header */
 }
 
 /* FOOTER */
 .main-footer {
-  background-color: #2C3E50;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9rem;
-  width: 100%;
-  margin: 0; /* Sin márgenes que afecten el ancho */
+    background-color: #2C3E50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    width: 100%;
+    margin-top: 20px; /* Espacio superior al footer */
+}
+
+/* Estilos para las tarjetas de las áreas de conocimiento */
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #2C3E50;
+}
+
+/* Estilos para los encabezados de sección */
+.section-header {
+    color: #2C3E50;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.section-header i {
+    margin-right: 5px;
+}
+
+/* Estilos para la nota destacada */
+.highlight-note {
+    background-color: #e0f7fa;
+    color: #00838f;
+    padding: 15px;
+    border-left: 5px solid #00bcd4;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos generales para iconos */
+i {
+    vertical-align: middle; /* Alinea verticalmente los iconos con el texto */
 }
