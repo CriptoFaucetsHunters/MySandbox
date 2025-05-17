@@ -6,12 +6,23 @@ document.addEventListener("DOMContentLoaded", function() {
 function initializeMenuButton() {
     const menuButton = document.getElementById("menu-button");
     const sidebar = document.getElementById("sidebar");
+    const closeMenuButton = document.getElementById("close-menu-button"); // Obtener el botón de cerrar
 
     if (menuButton && sidebar) {
         menuButton.addEventListener("click", function(e) {
             e.stopPropagation();
             sidebar.classList.toggle("active");
             menuButton.classList.toggle("active");
+        });
+    }
+
+    // Agregar evento de clic al botón de cerrar
+    if (closeMenuButton) {
+        closeMenuButton.addEventListener("click", function(e) {
+            e.stopPropagation();
+            sidebar.classList.remove("active");
+            menuButton.classList.remove("active");
+            closeAllSubmenus(); // Cerrar submenús al cerrar el menú principal
         });
     }
 }
@@ -39,8 +50,7 @@ function attachSubmenuListeners() {
             const icon = this.querySelector('.submenu-toggle');
             const isOpen = submenu.classList.contains('open');
 
-            closeAllSubmenus(submenu);
-
+            closeAllSubmenus(submenu); // Cerrar otros submenús
             submenu.classList.toggle('open');
             if (icon) {
                 icon.classList.toggle('open');
@@ -64,25 +74,4 @@ function closeAllSubmenus(currentSubmenu = null) {
             toggle.classList.remove('open');
         }
     });
-}
-
-// Cargar el footer (esto se mantiene igual)
-document.addEventListener("DOMContentLoaded", function() {
-    var basePath = window.fragmentBasePath || "";
-    loadHTMLFragment("footer", basePath + "footer.html");
-});
-
-function loadHTMLFragment(id, file, callback) {
-    fetch(file)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Error " + response.status + " al cargar " + file);
-            }
-            return response.text();
-        })
-        .then(data => {
-            document.getElementById(id).innerHTML = data;
-            if (callback) callback();
-        })
-        .catch(error => console.error('Error al cargar ' + file + ':', error));
 }
