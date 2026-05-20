@@ -6,7 +6,7 @@
     --fondo-secundario: #1A2332;
     --fondo-tarjeta: #242B45;
     --texto-principal: #FFFFFF;
-    --texto-secundario: #8B92A8;
+    --texto-secundario: #C5C9D6; /* Gris más claro y nítido para mejor lectura */
     --acento-cian: #00D4FF;
     --acento-verde: #CCFF00;
     --borde-sutil: #2D3561;
@@ -335,7 +335,6 @@ body {
     margin: 0 auto;
 }
 
-/* 1. Bloque destacado inicial */
 .featured-intro {
     background: linear-gradient(135deg, var(--fondo-secundario) 0%, var(--fondo-tarjeta) 100%);
     border: 1px solid var(--borde-sutil);
@@ -351,11 +350,8 @@ body {
     margin-bottom: 1rem;
 }
 
-.featured-intro p:last-child {
-    margin-bottom: 0;
-}
+.featured-intro p:last-child { margin-bottom: 0; }
 
-/* 2. Tarjeta estándar */
 .content-card {
     background-color: var(--fondo-tarjeta);
     padding: 2rem;
@@ -401,11 +397,10 @@ body {
     line-height: 1.4;
 }
 
-/* 3. Tarjeta centrada (para ¿Y ahora qué?) */
+/* Tarjeta centrada con halo restaurado */
 .content-card.text-center-card {
     text-align: center;
-    border-left: none; /* Quitamos el borde izquierdo si existiera */
-    border-color: var(--acento-cian); /* Borde sutil */
+    border-color: var(--borde-sutil);
 }
 
 .content-card.text-center-card h3 {
@@ -414,7 +409,15 @@ body {
     text-align: center;
 }
 
-/* 4. Bloques compactos */
+/*  Halo cian en los 4 lados al interactuar */
+@media (hover: hover) {
+    .content-card.text-center-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--acento-cian);
+        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+    }
+}
+
 .compact-list-box {
     background-color: var(--fondo-secundario);
     border-left: 4px solid var(--acento-verde);
@@ -427,15 +430,11 @@ body {
     color: var(--texto-principal);
     font-size: 1.2rem;
     margin-bottom: 0.8rem;
-    border-left: none; /* Sin raya lateral en estos bloques */
+    border-left: none;
     padding-left: 0;
 }
 
-.compact-list-box ul {
-    list-style: none;
-    padding: 0;
-}
-
+.compact-list-box ul { list-style: none; padding: 0; }
 .compact-list-box ul li {
     color: var(--texto-secundario);
     padding: 0.3rem 0 0.3rem 1.5rem;
@@ -443,7 +442,6 @@ body {
     font-size: 0.95rem;
     line-height: 1.5;
 }
-
 .compact-list-box ul li::before {
     content: '▸';
     color: var(--acento-verde);
@@ -452,7 +450,6 @@ body {
     font-weight: bold;
 }
 
-/* 5. Cita final (Rincón del Hunter) */
 .quote-box {
     background: linear-gradient(135deg, var(--fondo-secundario) 0%, var(--fondo-tarjeta) 100%);
     border-left: 4px solid var(--acento-cian);
@@ -473,7 +470,6 @@ body {
     padding-left: 0;
 }
 
-/* Texto destacado (Cyan) */
 .text-cyan {
     color: var(--acento-cian);
     font-weight: bold;
