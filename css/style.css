@@ -1,5 +1,6 @@
 /* style.css - Cripto Faucets Hunters */
 
+/* ===== 1. VARIABLES Y RESET ===== */
 :root {
     --fondo-principal: #0A0E27;
     --fondo-secundario: #1A2332;
@@ -21,6 +22,7 @@ body {
     overflow-x: hidden;
 }
 
+/* ===== 2. NAVEGACIÓN GLOBAL ===== */
 .navbar {
     background-color: var(--fondo-secundario);
     padding: 1rem 1.5rem;
@@ -101,6 +103,7 @@ body {
     border-radius: 3px;
 }
 
+/* ===== 3. ESTRUCTURA PRINCIPAL ===== */
 .main-content {
     margin-top: 80px;
     padding: 2rem 1.5rem;
@@ -109,94 +112,7 @@ body {
     margin-right: auto;
 }
 
-.hero {
-    text-align: center;
-    padding: 3rem 2rem;
-    background: linear-gradient(135deg, var(--fondo-secundario) 0%, var(--fondo-tarjeta) 100%);
-    border-radius: 15px;
-    margin-bottom: 3rem;
-    border: 1px solid var(--borde-sutil);
-}
-
-.hero h1 {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, var(--texto-principal) 0%, var(--acento-cian) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-intro {
-    max-width: 700px;
-    margin: 0 auto 1.5rem auto;
-    text-align: left;
-}
-
-.hero-intro p {
-    color: var(--texto-secundario);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    line-height: 1.7;
-}
-
-.read-more-link {
-    display: inline-block;
-    color: var(--acento-cian);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.read-more-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -2px;
-    left: 0;
-    background-color: var(--acento-cian);
-    transition: width 0.3s ease;
-}
-
-.read-more-link:hover {
-    color: var(--acento-verde);
-}
-
-.read-more-link:hover::after { width: 100%; }
-
-.btn-group {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
-}
-
-.btn-primary {
-    display: inline-block;
-    background-color: var(--acento-cian);
-    color: var(--fondo-principal);
-    padding: 0.8rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: 2px solid var(--acento-cian);
-}
-
-.btn-primary:hover {
-    background-color: transparent;
-    color: var(--acento-cian);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
-}
-
 .section { margin-bottom: 3rem; }
-
 .section-title {
     font-size: 2rem;
     margin-bottom: 1.5rem;
@@ -207,12 +123,7 @@ body {
     align-items: center;
     gap: 0.6rem;
 }
-
-.section-title i {
-    color: var(--acento-cian);
-    font-size: 1.8rem;
-    flex-shrink: 0;
-}
+.section-title i { color: var(--acento-cian); font-size: 1.8rem; flex-shrink: 0; }
 
 .cards-grid {
     display: grid;
@@ -245,27 +156,9 @@ body {
     width: 100%;
 }
 
-.card-icon {
-    font-size: 1.5rem;
-    color: var(--acento-cian);
-    flex-shrink: 0;
-    line-height: 1;
-}
-
-.card h3 {
-    color: var(--acento-cian);
-    margin: 0;
-    font-size: 1.35rem;
-    line-height: 1.3;
-    flex: 1;
-}
-
-.card p {
-    color: var(--texto-secundario);
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-    line-height: 1.7;
-}
+.card-icon { font-size: 1.5rem; color: var(--acento-cian); flex-shrink: 0; line-height: 1; }
+.card h3 { color: var(--acento-cian); margin: 0; font-size: 1.35rem; line-height: 1.3; flex: 1; }
+.card p { color: var(--texto-secundario); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.7; }
 
 .card-link {
     display: inline-block;
@@ -274,10 +167,207 @@ body {
     text-decoration: none;
     font-weight: 600;
 }
-
 .card-link::after { content: ' →'; transition: transform 0.3s ease; display: inline-block; }
 .card-link:hover::after { transform: translateX(5px); }
 
+/* ===== 4. HOMEPAGE HERO ===== */
+.hero {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--fondo-secundario) 0%, var(--fondo-tarjeta) 100%);
+    border-radius: 15px;
+    margin-bottom: 3rem;
+    border: 1px solid var(--borde-sutil);
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--texto-principal) 0%, var(--acento-cian) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-intro { max-width: 700px; margin: 0 auto 1.5rem auto; text-align: left; }
+.hero-intro p { color: var(--texto-secundario); font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.7; }
+
+.read-more-link {
+    display: inline-block;
+    color: var(--acento-cian);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.read-more-link::after {
+    content: ''; position: absolute; width: 0; height: 1px; bottom: -2px; left: 0;
+    background-color: var(--acento-cian); transition: width 0.3s ease;
+}
+.read-more-link:hover { color: var(--acento-verde); }
+.read-more-link:hover::after { width: 100%; }
+
+.btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--acento-cian);
+    color: var(--fondo-principal);
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid var(--acento-cian);
+}
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--acento-cian);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+}
+
+/* ===== 5. ESTILOS ESPECÍFICOS DE BIENVENIDA.HTML ===== */
+.page-header { text-align: center; margin-bottom: 2.5rem; padding-top: 1.5rem; }
+.page-header h1 {
+    font-size: 2.2rem; margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--texto-principal) 0%, var(--acento-cian) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.content-wrapper { max-width: 900px; margin: 0 auto; }
+
+/* Bloque inicial destacado */
+.featured-intro {
+    background: linear-gradient(135deg, var(--fondo-secundario) 0%, var(--fondo-tarjeta) 100%);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    margin-bottom: 2rem;
+}
+.featured-intro p { color: var(--texto-secundario); font-size: 1.1rem; line-height: 1.7; margin-bottom: 1rem; }
+.featured-intro p:last-child { margin-bottom: 0; }
+
+/* Tarjetas de contenido */
+.content-card {
+    background-color: var(--fondo-tarjeta);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--borde-sutil);
+    margin-bottom: 1.5rem;
+}
+.content-card h3 {
+    color: var(--acento-cian);
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--acento-cian);
+    padding-left: 0.8rem;
+}
+.content-card p { color: var(--texto-secundario); line-height: 1.8; margin-bottom: 1rem; }
+
+.content-card ul { list-style: none; padding-left: 0; margin-bottom: 1rem; }
+.content-card ul li {
+    color: var(--texto-secundario);
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+.content-card ul li::before {
+    content: '•';
+    color: var(--acento-cian);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+/* Tarjeta centrada (¿Y ahora qué?) */
+.content-card.text-center-card { text-align: center; border-color: var(--borde-sutil); }
+.content-card.text-center-card h3 { border-left: none; padding-left: 0; text-align: center; }
+@media (hover: hover) {
+    .content-card.text-center-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--acento-cian);
+        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+    }
+}
+
+/* Bloques compactos (Lo que encontrarás / NO encontrarás) */
+.compact-list-box {
+    background-color: var(--fondo-secundario);
+    border-left: 4px solid var(--acento-verde);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+.compact-list-box h3 {
+    color: var(--texto-principal);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    border-left: none;
+    padding-left: 0;
+}
+.compact-list-box ul { list-style: none; padding: 0; }
+.compact-list-box ul li {
+    color: var(--texto-secundario);
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.compact-list-box ul li::before {
+    content: '▸';
+    color: var(--acento-verde);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Cita final (Rincón del Hunter) */
+.quote-box {
+    background: linear-gradient(135deg, var(--fondo-secundario) 0%, var(--fondo-tarjeta) 100%);
+    border-left: 4px solid var(--acento-cian);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--texto-principal);
+    line-height: 1.7;
+}
+.quote-box h3 {
+    font-style: normal;
+    color: var(--acento-cian);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-left: none;
+    padding-left: 0;
+}
+
+/* Utilidades */
+.text-cyan { color: var(--acento-cian); font-weight: bold; }
+
+/* ===== 6. PÁGINAS DE LISTADO (Tutoriales/Reviews) ===== */
+.listing-intro {
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+    text-align: center;
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+.category-section { margin-bottom: 3rem; }
+.category-section h2 {
+    font-size: 1.6rem;
+    color: var(--texto-principal);
+    margin-bottom: 1.2rem;
+    padding-left: 0.8rem;
+    border-left: 3px solid var(--acento-verde);
+}
+
+/* ===== 7. FOOTER ===== */
 .footer {
     background-color: var(--fondo-secundario);
     text-align: center;
@@ -286,15 +376,8 @@ body {
     border-top: 1px solid var(--borde-sutil);
     color: var(--texto-secundario);
 }
-
 .footer span { color: var(--acento-cian); }
-.footer i { 
-    color: var(--acento-cian); 
-    font-size: 1.1rem; 
-    vertical-align: middle; 
-    margin-left: 0.3rem; 
-}
-
+.footer i { color: var(--acento-cian); font-size: 1.1rem; vertical-align: middle; margin-left: 0.3rem; }
 .badge {
     display: inline-block;
     background-color: var(--acento-verde);
@@ -307,59 +390,19 @@ body {
     vertical-align: middle;
 }
 
-/* Estilos para páginas de listado */
-.page-header { text-align: center; margin-bottom: 2rem; padding-top: 1.5rem; }
-.page-header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, var(--texto-principal) 0%, var(--acento-cian) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.listing-intro {
-    max-width: 700px;
-    margin: 0 auto 2.5rem auto;
-    text-align: center;
-    color: var(--texto-secundario);
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
-
-.category-section { margin-bottom: 3rem; }
-.category-section h2 {
-    font-size: 1.6rem;
-    color: var(--texto-principal);
-    margin-bottom: 1.2rem;
-    padding-left: 0.8rem;
-    border-left: 3px solid var(--acento-verde);
-}
-
-.text-cyan { color: var(--acento-cian); font-weight: bold; }
-
+/* ===== 8. RESPONSIVE ===== */
 @media (max-width: 768px) {
     .hamburger { display: flex; }
     .logo { margin-left: 60px; text-align: left; }
     .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 80%;
-        max-width: 300px;
-        height: auto;
-        max-height: calc(100vh - 70px);
-        flex-direction: column;
-        background-color: var(--fondo-secundario);
-        padding: 2rem 1rem;
-        gap: 1.5rem;
-        transition: 0.3s ease-in-out;
-        border-right: 2px solid var(--acento-cian);
-        box-shadow: 5px 0 20px rgba(0,0,0,0.5);
-        overflow-y: auto;
-        margin-left: 0;
+        position: fixed; top: 70px; left: -100%; width: 80%; max-width: 300px;
+        height: auto; max-height: calc(100vh - 70px); flex-direction: column;
+        background-color: var(--fondo-secundario); padding: 2rem 1rem; gap: 1.5rem;
+        transition: 0.3s ease-in-out; border-right: 2px solid var(--acento-cian);
+        box-shadow: 5px 0 20px rgba(0,0,0,0.5); overflow-y: auto; margin-left: 0;
     }
     .nav-menu.active { left: 0; }
+    
     .hero h1 { font-size: 1.8rem; }
     .hero-intro p { font-size: 1rem; }
     .section-title { font-size: 1.5rem; }
@@ -369,6 +412,10 @@ body {
     .card-top { gap: 0.6rem; }
     .card-icon { font-size: 1.3rem; }
     .card h3 { font-size: 1.05rem; }
+    
     .page-header h1 { font-size: 1.8rem; }
+    .content-card { padding: 1.5rem; }
+    .content-card h3 { font-size: 1.2rem; }
+    .featured-intro { padding: 1.8rem 1.2rem; }
     .category-section h2 { font-size: 1.3rem; }
 }
