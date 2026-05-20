@@ -229,8 +229,8 @@ body {
 
 .card {
     background-color: var(--fondo-tarjeta);
-    padding: 1.5rem;
-    border-radius: 10px;
+    padding: 2rem;
+    border-radius: 12px;
     border: 1px solid var(--borde-sutil);
     transition: all 0.3s ease;
 }
@@ -262,7 +262,7 @@ body {
 .card h3 {
     color: var(--acento-cian);
     margin: 0;
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     line-height: 1.3;
     flex: 1;
 }
@@ -270,7 +270,8 @@ body {
 .card p {
     color: var(--texto-secundario);
     font-size: 0.95rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
 }
 
 .card-link {
@@ -313,7 +314,7 @@ body {
     vertical-align: middle;
 }
 
-/* ===== ESTILOS PARA PÁGINA DE BIENVENIDA (RITMO VISUAL) ===== */
+/* ===== ESTILOS PARA PÁGINA DE BIENVENIDA ===== */
 .page-header {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -340,22 +341,18 @@ body {
     border: 1px solid var(--borde-sutil);
     border-radius: 15px;
     padding: 2.5rem 2rem;
-    text-align: center;
     margin-bottom: 2rem;
-}
-
-.featured-intro h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--acento-cian);
 }
 
 .featured-intro p {
     color: var(--texto-secundario);
     font-size: 1.1rem;
     line-height: 1.7;
-    max-width: 750px;
-    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.featured-intro p:last-child {
+    margin-bottom: 0;
 }
 
 /* 2. Tarjeta estándar */
@@ -381,21 +378,43 @@ body {
     margin-bottom: 1rem;
 }
 
-/* 3. Filas alternadas (2 columnas en PC, 1 en móvil) */
-.content-row {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
+.content-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
 }
 
-.content-row .content-card {
-    flex: 1;
-    min-width: 280px;
-    margin-bottom: 0;
+.content-card ul li {
+    color: var(--texto-secundario);
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    position: relative;
+    line-height: 1.6;
 }
 
-/* 4. Bloque compacto para listas */
+.content-card ul li::before {
+    content: '•';
+    color: var(--acento-cian);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+/* 3. Tarjeta centrada (para ¿Y ahora qué?) */
+.content-card.text-center-card {
+    text-align: center;
+    border-left: none; /* Quitamos el borde izquierdo si existiera */
+    border-color: var(--acento-cian); /* Borde sutil */
+}
+
+.content-card.text-center-card h3 {
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+}
+
+/* 4. Bloques compactos */
 .compact-list-box {
     background-color: var(--fondo-secundario);
     border-left: 4px solid var(--acento-verde);
@@ -408,6 +427,8 @@ body {
     color: var(--texto-principal);
     font-size: 1.2rem;
     margin-bottom: 0.8rem;
+    border-left: none; /* Sin raya lateral en estos bloques */
+    padding-left: 0;
 }
 
 .compact-list-box ul {
@@ -431,7 +452,7 @@ body {
     font-weight: bold;
 }
 
-/* 5. Cita final */
+/* 5. Cita final (Rincón del Hunter) */
 .quote-box {
     background: linear-gradient(135deg, var(--fondo-secundario) 0%, var(--fondo-tarjeta) 100%);
     border-left: 4px solid var(--acento-cian);
@@ -441,15 +462,21 @@ body {
     font-style: italic;
     color: var(--texto-principal);
     line-height: 1.7;
-    text-align: center;
 }
 
-.quote-box cite {
-    display: block;
-    margin-top: 1rem;
+.quote-box h3 {
     font-style: normal;
     color: var(--acento-cian);
-    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-left: none;
+    padding-left: 0;
+}
+
+/* Texto destacado (Cyan) */
+.text-cyan {
+    color: var(--acento-cian);
+    font-weight: bold;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -492,5 +519,4 @@ body {
     .content-card { padding: 1.5rem; }
     .content-card h3 { font-size: 1.2rem; }
     .featured-intro { padding: 1.8rem 1.2rem; }
-    .content-row { flex-direction: column; }
 }
