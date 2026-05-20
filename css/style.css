@@ -1,18 +1,16 @@
 /* style.css - Cripto Faucets Hunters */
 
-/* ===== VARIABLES DE COLOR ===== */
 :root {
     --fondo-principal: #0A0E27;
     --fondo-secundario: #1A2332;
     --fondo-tarjeta: #242B45;
     --texto-principal: #FFFFFF;
-    --texto-secundario: #C5C9D6; /* Gris más claro y nítido para mejor lectura */
+    --texto-secundario: #C5C9D6;
     --acento-cian: #00D4FF;
     --acento-verde: #CCFF00;
     --borde-sutil: #2D3561;
 }
 
-/* ===== RESET BÁSICO ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -23,7 +21,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== NAVEGACIÓN ===== */
 .navbar {
     background-color: var(--fondo-secundario);
     padding: 1rem 1.5rem;
@@ -104,7 +101,6 @@ body {
     border-radius: 3px;
 }
 
-/* ===== CONTENIDO PRINCIPAL ===== */
 .main-content {
     margin-top: 80px;
     padding: 2rem 1.5rem;
@@ -113,7 +109,6 @@ body {
     margin-right: auto;
 }
 
-/* Hero Section */
 .hero {
     text-align: center;
     padding: 3rem 2rem;
@@ -171,9 +166,7 @@ body {
     color: var(--acento-verde);
 }
 
-.read-more-link:hover::after {
-    width: 100%;
-}
+.read-more-link:hover::after { width: 100%; }
 
 .btn-group {
     display: flex;
@@ -314,13 +307,8 @@ body {
     vertical-align: middle;
 }
 
-/* ===== ESTILOS PARA PÁGINA DE BIENVENIDA ===== */
-.page-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
-    padding-top: 1.5rem;
-}
-
+/* Estilos para páginas de listado */
+.page-header { text-align: center; margin-bottom: 2rem; padding-top: 1.5rem; }
 .page-header h1 {
     font-size: 2.2rem;
     margin-bottom: 0.5rem;
@@ -330,156 +318,29 @@ body {
     background-clip: text;
 }
 
-.content-wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.featured-intro {
-    background: linear-gradient(135deg, var(--fondo-secundario) 0%, var(--fondo-tarjeta) 100%);
-    border: 1px solid var(--borde-sutil);
-    border-radius: 15px;
-    padding: 2.5rem 2rem;
-    margin-bottom: 2rem;
-}
-
-.featured-intro p {
+.listing-intro {
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+    text-align: center;
     color: var(--texto-secundario);
     font-size: 1.1rem;
     line-height: 1.7;
-    margin-bottom: 1rem;
 }
 
-.featured-intro p:last-child { margin-bottom: 0; }
-
-.content-card {
-    background-color: var(--fondo-tarjeta);
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid var(--borde-sutil);
-    margin-bottom: 1.5rem;
-}
-
-.content-card h3 {
-    color: var(--acento-cian);
-    font-size: 1.35rem;
-    margin-bottom: 1rem;
-    border-left: 3px solid var(--acento-cian);
+.category-section { margin-bottom: 3rem; }
+.category-section h2 {
+    font-size: 1.6rem;
+    color: var(--texto-principal);
+    margin-bottom: 1.2rem;
     padding-left: 0.8rem;
+    border-left: 3px solid var(--acento-verde);
 }
 
-.content-card p {
-    color: var(--texto-secundario);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-}
+.text-cyan { color: var(--acento-cian); font-weight: bold; }
 
-.content-card ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 1rem;
-}
-
-.content-card ul li {
-    color: var(--texto-secundario);
-    padding: 0.4rem 0 0.4rem 1.5rem;
-    position: relative;
-    line-height: 1.6;
-}
-
-.content-card ul li::before {
-    content: '•';
-    color: var(--acento-cian);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-    font-size: 1.2rem;
-    line-height: 1.4;
-}
-
-/* Tarjeta centrada con halo restaurado */
-.content-card.text-center-card {
-    text-align: center;
-    border-color: var(--borde-sutil);
-}
-
-.content-card.text-center-card h3 {
-    border-left: none;
-    padding-left: 0;
-    text-align: center;
-}
-
-/*  Halo cian en los 4 lados al interactuar */
-@media (hover: hover) {
-    .content-card.text-center-card:hover {
-        transform: translateY(-5px);
-        border-color: var(--acento-cian);
-        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
-    }
-}
-
-.compact-list-box {
-    background-color: var(--fondo-secundario);
-    border-left: 4px solid var(--acento-verde);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-}
-
-.compact-list-box h3 {
-    color: var(--texto-principal);
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-    border-left: none;
-    padding-left: 0;
-}
-
-.compact-list-box ul { list-style: none; padding: 0; }
-.compact-list-box ul li {
-    color: var(--texto-secundario);
-    padding: 0.3rem 0 0.3rem 1.5rem;
-    position: relative;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-.compact-list-box ul li::before {
-    content: '▸';
-    color: var(--acento-verde);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-}
-
-.quote-box {
-    background: linear-gradient(135deg, var(--fondo-secundario) 0%, var(--fondo-tarjeta) 100%);
-    border-left: 4px solid var(--acento-cian);
-    padding: 2rem;
-    border-radius: 12px;
-    margin-top: 2rem;
-    font-style: italic;
-    color: var(--texto-principal);
-    line-height: 1.7;
-}
-
-.quote-box h3 {
-    font-style: normal;
-    color: var(--acento-cian);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    border-left: none;
-    padding-left: 0;
-}
-
-.text-cyan {
-    color: var(--acento-cian);
-    font-weight: bold;
-}
-
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .hamburger { display: flex; }
     .logo { margin-left: 60px; text-align: left; }
-    
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -498,7 +359,6 @@ body {
         overflow-y: auto;
         margin-left: 0;
     }
-    
     .nav-menu.active { left: 0; }
     .hero h1 { font-size: 1.8rem; }
     .hero-intro p { font-size: 1rem; }
@@ -506,13 +366,9 @@ body {
     .section-title i { font-size: 1.4rem; }
     .cards-grid { grid-template-columns: 1fr; }
     .main-content { padding: 1rem; margin-top: 70px; }
-    
     .card-top { gap: 0.6rem; }
     .card-icon { font-size: 1.3rem; }
     .card h3 { font-size: 1.05rem; }
-    
     .page-header h1 { font-size: 1.8rem; }
-    .content-card { padding: 1.5rem; }
-    .content-card h3 { font-size: 1.2rem; }
-    .featured-intro { padding: 1.8rem 1.2rem; }
+    .category-section h2 { font-size: 1.3rem; }
 }
