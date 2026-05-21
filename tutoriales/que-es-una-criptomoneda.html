@@ -19,7 +19,7 @@
             max-width: 820px; 
             margin: 0 auto; 
             padding: 2rem 1rem; 
-            overflow-x: hidden; /* Evita scroll horizontal */
+            overflow-x: hidden; 
             width: 100%; 
             box-sizing: border-box; 
         }
@@ -29,26 +29,24 @@
         /* ========================================== */
         .tutorial-article h2 {
             color: var(--texto-principal);
-            font-size: 1.05rem; /* Tamaño base del título */
+            font-size: 1.05rem;
             margin: 2.5rem 0 1.2rem 0;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--acento-cian);
             display: flex;
-            align-items: flex-start; /* CRÍTICO: alinea ícono arriba para títulos multilínea */
+            align-items: flex-start;
             gap: 0.8rem;
             line-height: 1.4;
             word-break: break-word;
         }
         
-        /* Íconos dentro de H2 */
         .tutorial-article h2 i { 
             color: var(--acento-cian); 
-            font-size: 1.5rem; /* Tamaño equilibrado con el texto */
+            font-size: 1.5rem; 
             flex-shrink: 0; 
-            margin-top: 0.15rem; /* Ajuste óptico: alinea con la altura de la 'x' del texto */
+            margin-top: 0.15rem; 
         }
         
-        /* Párrafos generales */
         .tutorial-article p {
             color: var(--texto-secundario);
             line-height: 1.85;
@@ -58,7 +56,6 @@
             overflow-wrap: break-word;
         }
         
-        /* Separador entre capítulos */
         .chapter-divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--borde-sutil), transparent);
@@ -93,7 +90,6 @@
             border-left: 3px solid var(--acento-verde);
         }
         
-        /* Header de caja: ícono + título en línea */
         .box-header {
             display: flex;
             align-items: center;
@@ -115,7 +111,6 @@
             min-width: 0;
         }
         
-        /* Contenido interno de cajas */
         .box-content { width: 100%; }
         .box-content p { 
             margin: 0; 
@@ -170,16 +165,15 @@
         }
         .tutorial-article ul li {
             color: var(--texto-secundario);
-            padding: 0.5rem 0 0.5rem 2rem; /* Espacio para el ícono */
+            padding: 0.5rem 0 0.5rem 2rem;
             position: relative;
             line-height: 1.6;
             font-size: 1.05rem;
             word-break: break-word;
             overflow-wrap: break-word;
         }
-        /* Ícono de pregunta de Remix inyectado vía CSS */
         .tutorial-article ul li::before {
-            content: '\f0d8'; /* Código unicode de ri-question-line en Remix v4 */
+            content: '\f0d8';
             font-family: 'remixicon';
             position: absolute;
             left: 0;
@@ -269,7 +263,6 @@
         <div class="tutorial-article">
             <header class="page-header">
                 <h1>¿Qué es una criptomoneda?</h1>
-                <!-- Subtítulo eliminado según solicitud -->
             </header>
 
             <h2><i class="ri-compass-3-line"></i> Introducción</h2>
@@ -434,45 +427,12 @@
         <p style="margin-top: 0.5rem; font-size: 0.9rem;">Aprende, gana y crece en el mundo crypto 🚀</p>
     </footer>
 
-    <!-- ========================================== -->
-    <!-- SCRIPT MENÚ HAMBURGUESA                    -->
-    <!-- ========================================== -->
-    <script>
-        // Selección de elementos del menú
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-
-        // Evento para abrir/cerrar menú al tocar hamburguesa
-        hamburger.addEventListener('click', (e) => { 
-            e.stopPropagation(); 
-            navMenu.classList.toggle('active'); 
-        });
-
-        // Evento para cerrar menú al tocar fuera de él
-        document.addEventListener('click', (e) => {
-            const isMenuOpen = navMenu.classList.contains('active');
-            const isClickInsideMenu = navMenu.contains(e.target);
-            const isClickHamburger = hamburger.contains(e.target);
-            if (isMenuOpen && !isClickInsideMenu && !isClickHamburger) {
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Cerrar menú al hacer clic en cualquier enlace interno
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => navMenu.classList.remove('active'));
-        });
-    </script>    
     <!-- Botón flotante "Volver al inicio" -->
     <button id="scrollToTopBtn" aria-label="Volver al inicio" title="Volver al inicio">
         <i class="ri-arrow-up-line"></i>
     </button>
 
-    <!-- Carga única del JavaScript centralizado -->
-    <!-- Nota: Ajusta la ruta según la ubicación de cada archivo -->
+    <!-- Carga única del JavaScript centralizado (ruta con ../ porque estamos en subcarpeta) -->
     <script src="../js/script.js"></script>
-</body>
-</html>
-
 </body>
 </html>
