@@ -18,10 +18,10 @@
         .tutorial-article { 
             max-width: 820px; 
             margin: 0 auto; 
-            padding: 2rem 1rem; /* Añadido padding lateral para móviles */
+            padding: 2rem 1rem; /* Padding lateral para evitar bordes pegados en móvil */
             overflow-x: hidden; /* Evita scroll horizontal accidental */
-            width: 100%; /* Asegura que no exceda el ancho disponible */
-            box-sizing: border-box; /* Incluye padding en el ancho total */
+            width: 100%; 
+            box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
         }
         
         /* ========================================== */
@@ -29,10 +29,10 @@
         /* ========================================== */
         .tutorial-article h2 {
             color: var(--texto-principal);
-            font-size: 1rem; /* Tamaño del texto del título */
+            font-size: 1rem; /* Tamaño del texto del título (ajusta aquí si lo deseas) */
             margin: 2.5rem 0 1.2rem 0;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--acento-cian); /* Línea cian restaurada */
+            border-bottom: 2px solid var(--acento-cian); /* Línea cian bajo el título */
             display: flex;
             align-items: center;
             gap: 0.7rem;
@@ -43,7 +43,7 @@
         /* Íconos dentro de los H2 */
         .tutorial-article h2 i { 
             color: var(--acento-cian); 
-            font-size: 1.8rem; /* Tamaño del ícono */
+            font-size: 1.8rem; /* Tamaño del ícono (ajusta aquí para cambiar proporción) */
             flex-shrink: 0; /* Evita que el ícono se encoja */
         }
         
@@ -53,8 +53,8 @@
             line-height: 1.85;
             margin-bottom: 1.2rem;
             font-size: 1.05rem;
-            word-break: break-word; /* Rompe palabras largas */
-            overflow-wrap: break-word; /* Ajuste adicional */
+            word-break: break-word; /* Rompe palabras largas para evitar desbordes */
+            overflow-wrap: break-word; /* Ajuste adicional de seguridad */
         }
         
         /* Separador visual entre capítulos */
@@ -72,12 +72,12 @@
             border-radius: 10px;
             margin: 1.8rem 0;
             display: flex;
-            flex-direction: column; /* Cambiado a columna para mejor control */
+            flex-direction: column; /* Apila ícono+título arriba y texto abajo */
             gap: 0.8rem;
             width: 100%;
             max-width: 100%; /* CRÍTICO: nunca exceder el ancho del padre */
             box-sizing: border-box;
-            overflow: hidden; /* Evita que nada se salga */
+            overflow: hidden; /* Evita que nada se salga de la caja */
             word-break: break-word;
             overflow-wrap: anywhere; /* Fuerza salto en palabras muy largas */
         }
@@ -94,7 +94,7 @@
             border-left: 3px solid var(--acento-verde);
         }
         
-        /* Header de la caja: ícono + título */
+        /* Header de la caja: ícono + título en la misma línea */
         .box-header {
             display: flex;
             align-items: center;
@@ -106,7 +106,7 @@
         .box-header i { 
             font-size: 1.3rem; 
             flex-shrink: 0; 
-            color: inherit; /* Hereda el color del padre */
+            color: inherit; /* Hereda el color del padre (cian o verde) */
         }
         .box-header strong {
             color: var(--texto-principal);
@@ -115,7 +115,7 @@
             word-break: break-word;
             overflow-wrap: break-word;
             flex: 1; /* Ocupa el espacio restante */
-            min-width: 0; /* Permite ajuste */
+            min-width: 0; /* Permite ajuste flexible */
         }
         
         /* Contenido de texto dentro de las cajas */
@@ -128,7 +128,7 @@
             font-size: 0.95rem; 
             color: var(--texto-secundario); 
             word-break: break-word; 
-            overflow-wrap: anywhere; /* CRÍTICO para palabras largas como "investigación" */
+            overflow-wrap: anywhere; /* CRÍTICO para palabras largas */
             line-height: 1.6;
             hyphens: auto; /* Permite guiones automáticos en palabras largas */
         }
@@ -140,29 +140,18 @@
             border-left: 3px solid var(--acento-cian);
             padding: 1.5rem 1.8rem;
             margin: 2.2rem 0;
-            background: linear-gradient(90deg, rgba(0,212,255,0.05), transparent);
+            background: rgba(0, 212, 255, 0.04); /* Fondo sutil sin gradientes complicados */
             font-style: italic;
             font-size: 1.1rem;
             color: var(--texto-principal);
-            position: relative;
             line-height: 1.6;
             max-width: 100%;
             box-sizing: border-box;
             word-break: break-word;
             overflow-wrap: break-word;
+            border-radius: 0 8px 8px 0; /* Esquina redondeada solo a la derecha */
         }
-        /* Ícono decorativo de fondo en la cita */
-        .pull-quote::before {
-            content: '\f152';
-            font-family: 'remixicon';
-            position: absolute;
-            top: -12px;
-            left: 12px;
-            font-size: 2.2rem;
-            color: var(--acento-cian);
-            opacity: 0.2;
-            font-style: normal;
-        }
+        /* NOTA: Se eliminó el pseudo-elemento ::before que causaba el ícono flotante mal ubicado */
 
         /* ========================================== */
         /* TÉRMINOS CLAVE RESALTADOS                  */
@@ -173,7 +162,7 @@
             background: rgba(0, 212, 255, 0.12);
             padding: 0.15rem 0.4rem;
             border-radius: 5px;
-            white-space: normal; /* Cambiado de nowrap a normal para permitir ajuste */
+            white-space: normal; /* Permite ajuste en lugar de nowrap */
             word-break: break-word;
             display: inline-block;
             max-width: 100%;
@@ -268,6 +257,13 @@
             .box-header i { font-size: 1.2rem; }
             .box-header strong { font-size: 0.95rem; }
             .box-content p { font-size: 0.9rem; }
+            
+            /* Ajuste para citas en móvil */
+            .pull-quote { 
+                padding: 1.2rem 1rem; 
+                font-size: 1rem; 
+                margin: 1.8rem 0; 
+            }
         }
     </style>
 </head>
@@ -327,7 +323,7 @@
             <p>Encendí la radio. Una voz muy seria anunciaba que, en el último mes, se habían impreso más billetes que calorías había en todo mi desayuno. Algo así como: "Se imprimió dinero como si fueran panfletos de feria". Y ahí, con el dedo untado de mantequilla, me detuve.</p>
             <p>Me pregunté: ¿el dinero se crea tan fácil como apretar las teclas de imprimir en mi PC? Si es así, ¿cuál es su verdadero valor? ¿Y quién le pone precio a la confianza que sentimos por esos números que aparecen en nuestras cuentas bancarias? Fue en ese instante que empecé a mirar al dinero de forma distinta.</p>
             
-            <!-- Cita destacada -->
+            <!-- Cita destacada (sin ícono decorativo problemático) -->
             <div class="pull-quote">
                 Hasta ese día era, para mí, una abstracción confiable: números digitales o billetes arrugados que representaban mi esfuerzo. Pero ahora... ahora me sonaba a truco de salón.
             </div>
@@ -380,7 +376,7 @@
             <p>Lo bueno ya lo dijimos: independencia, innovación, apertura, transparencia. Pero... también hay que hablar del humo. Porque cuando la ambición y la ignorancia se encuentran en un mercado nuevo, las <span class="key-term">estafas</span> aparecen vestidas de gala.</p>
             <p>Me pasó más de una vez ver cómo alguien caía en una promesa de "multiplica tu inversión en 48 horas" solo para encontrarse con un grupo de Telegram vacío y una billetera vacía. Estafas, <span class="key-term">pirámides</span>, "proyectos visionarios" que no eran más que fachadas.</p>
             
-            <!-- Caja destacada tipo Advertencia - CORREGIDA -->
+            <!-- Caja destacada tipo Advertencia -->
             <div class="warning-box">
                 <div class="box-header">
                     <i class="ri-error-warning-line"></i>
@@ -430,6 +426,7 @@
             </ul>
             <p>Criptomonedas no es solo "tecnología"; es <span class="key-term">cultura</span>. Es decir: es la manera en la que una comunidad decide organizar su economía, su confianza, su justicia. Y eso es revolucionario.</p>
             
+            <!-- Cita destacada limpia (sin ícono decorativo) -->
             <div class="pull-quote">
                 En vez de delegar todo en un banco que te cobra por respirar, acá tú tienes las llaves. Literalmente: tu <span class="key-term">clave privada</span> es tu castillo. Y eso es tan poderoso como desafiante.
             </div>
@@ -456,7 +453,7 @@
             <!-- Rincón del Hunter (Caja de cita final) -->
             <div class="quote-box" style="margin-top: 2.5rem;">
                 <h3><i class="ri-brain-line" style="margin-right:0.5rem; vertical-align:middle;"></i> Rincón del Hunter</h3>
-                <p>“Aprendí que el dinero no es solo números, es narrativa. Y que entender las criptomonedas no es dominar fórmulas, sino recuperar el derecho a hacer preguntas incómodas sin pedir permiso.”</p>
+                <p>"Aprendí que el dinero no es solo números, es narrativa. Y que entender las criptomonedas no es dominar fórmulas, sino recuperar el derecho a hacer preguntas incómodas sin pedir permiso."</p>
             </div>
 
             <!-- Navegación inferior -->
