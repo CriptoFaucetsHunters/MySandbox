@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Qué es una criptomoneda? - Cripto Faucets Hunters</title>
     
-    <!-- Enlace a la librería de íconos Remix -->
+    <!-- Enlace a la librería de íconos Remix (CDN oficial) -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Enlace a la hoja de estilos principal del sitio -->
     <link rel="stylesheet" href="../css/style.css">
@@ -14,14 +14,14 @@
     <!-- ESTILOS EXCLUSIVOS PARA ESTA PÁGINA        -->
     <!-- ========================================== -->
     <style>
-        /* Contenedor principal del tutorial: limita el ancho para mejor lectura */
+        /* Contenedor principal: limita ancho máximo para lectura cómoda */
         .tutorial-article { 
             max-width: 820px; 
             margin: 0 auto; 
-            padding: 2rem 1rem; /* Padding lateral para evitar bordes pegados en móvil */
-            overflow-x: hidden; /* Evita scroll horizontal accidental */
+            padding: 2rem 1rem; 
+            overflow-x: hidden; /* Evita scroll horizontal */
             width: 100%; 
-            box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+            box-sizing: border-box; 
         }
         
         /* ========================================== */
@@ -29,35 +29,36 @@
         /* ========================================== */
         .tutorial-article h2 {
             color: var(--texto-principal);
-            font-size: 1rem; /* Tamaño del texto del título (ajusta aquí si lo deseas) */
+            font-size: 1.05rem; /* Tamaño base del título */
             margin: 2.5rem 0 1.2rem 0;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--acento-cian); /* Línea cian bajo el título */
+            border-bottom: 2px solid var(--acento-cian);
             display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            line-height: 1.3;
-            word-break: break-word; /* Previene desbordamiento en títulos largos */
+            align-items: flex-start; /* CRÍTICO: alinea ícono arriba para títulos multilínea */
+            gap: 0.8rem;
+            line-height: 1.4;
+            word-break: break-word;
         }
         
-        /* Íconos dentro de los H2 */
+        /* Íconos dentro de H2 */
         .tutorial-article h2 i { 
             color: var(--acento-cian); 
-            font-size: 1.8rem; /* Tamaño del ícono (ajusta aquí para cambiar proporción) */
-            flex-shrink: 0; /* Evita que el ícono se encoja */
+            font-size: 1.5rem; /* Tamaño equilibrado con el texto */
+            flex-shrink: 0; 
+            margin-top: 0.15rem; /* Ajuste óptico: alinea con la altura de la 'x' del texto */
         }
         
-        /* Párrafos generales del tutorial */
+        /* Párrafos generales */
         .tutorial-article p {
             color: var(--texto-secundario);
             line-height: 1.85;
             margin-bottom: 1.2rem;
             font-size: 1.05rem;
-            word-break: break-word; /* Rompe palabras largas para evitar desbordes */
-            overflow-wrap: break-word; /* Ajuste adicional de seguridad */
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
         
-        /* Separador visual entre capítulos */
+        /* Separador entre capítulos */
         .chapter-divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--borde-sutil), transparent);
@@ -72,65 +73,58 @@
             border-radius: 10px;
             margin: 1.8rem 0;
             display: flex;
-            flex-direction: column; /* Apila ícono+título arriba y texto abajo */
+            flex-direction: column;
             gap: 0.8rem;
             width: 100%;
-            max-width: 100%; /* CRÍTICO: nunca exceder el ancho del padre */
+            max-width: 100%;
             box-sizing: border-box;
-            overflow: hidden; /* Evita que nada se salga de la caja */
+            overflow: hidden;
             word-break: break-word;
-            overflow-wrap: anywhere; /* Fuerza salto en palabras muy largas */
+            overflow-wrap: anywhere;
         }
         
-        /* Caja de información (fondo cian suave) */
         .info-box {
             background-color: rgba(0, 212, 255, 0.06);
             border-left: 3px solid var(--acento-cian);
         }
         
-        /* Caja de advertencia (fondo verde lima suave) */
         .warning-box {
             background-color: rgba(204, 255, 0, 0.06);
             border-left: 3px solid var(--acento-verde);
         }
         
-        /* Header de la caja: ícono + título en la misma línea */
+        /* Header de caja: ícono + título en línea */
         .box-header {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             margin-bottom: 0.5rem;
             width: 100%;
-            max-width: 100%;
         }
         .box-header i { 
             font-size: 1.3rem; 
             flex-shrink: 0; 
-            color: inherit; /* Hereda el color del padre (cian o verde) */
+            color: inherit; 
         }
         .box-header strong {
             color: var(--texto-principal);
             font-size: 1rem;
-            display: block;
             word-break: break-word;
             overflow-wrap: break-word;
-            flex: 1; /* Ocupa el espacio restante */
-            min-width: 0; /* Permite ajuste flexible */
+            flex: 1;
+            min-width: 0;
         }
         
-        /* Contenido de texto dentro de las cajas */
-        .box-content {
-            width: 100%;
-            max-width: 100%;
-        }
+        /* Contenido interno de cajas */
+        .box-content { width: 100%; }
         .box-content p { 
             margin: 0; 
             font-size: 0.95rem; 
             color: var(--texto-secundario); 
             word-break: break-word; 
-            overflow-wrap: anywhere; /* CRÍTICO para palabras largas */
+            overflow-wrap: anywhere; 
             line-height: 1.6;
-            hyphens: auto; /* Permite guiones automáticos en palabras largas */
+            hyphens: auto;
         }
 
         /* ========================================== */
@@ -140,7 +134,7 @@
             border-left: 3px solid var(--acento-cian);
             padding: 1.5rem 1.8rem;
             margin: 2.2rem 0;
-            background: rgba(0, 212, 255, 0.04); /* Fondo sutil sin gradientes complicados */
+            background: rgba(0, 212, 255, 0.04);
             font-style: italic;
             font-size: 1.1rem;
             color: var(--texto-principal);
@@ -149,9 +143,8 @@
             box-sizing: border-box;
             word-break: break-word;
             overflow-wrap: break-word;
-            border-radius: 0 8px 8px 0; /* Esquina redondeada solo a la derecha */
+            border-radius: 0 8px 8px 0;
         }
-        /* NOTA: Se eliminó el pseudo-elemento ::before que causaba el ícono flotante mal ubicado */
 
         /* ========================================== */
         /* TÉRMINOS CLAVE RESALTADOS                  */
@@ -162,13 +155,13 @@
             background: rgba(0, 212, 255, 0.12);
             padding: 0.15rem 0.4rem;
             border-radius: 5px;
-            white-space: normal; /* Permite ajuste en lugar de nowrap */
+            white-space: normal;
             word-break: break-word;
             display: inline-block;
             max-width: 100%;
         }
 
-        /* Listas de preguntas */
+        /* Listas con íconos de Remix */
         .tutorial-article ul { 
             list-style: none; 
             padding: 0; 
@@ -177,23 +170,26 @@
         }
         .tutorial-article ul li {
             color: var(--texto-secundario);
-            padding: 0.5rem 0 0.5rem 1.8rem;
+            padding: 0.5rem 0 0.5rem 2rem; /* Espacio para el ícono */
             position: relative;
             line-height: 1.6;
             font-size: 1.05rem;
             word-break: break-word;
             overflow-wrap: break-word;
         }
+        /* Ícono de pregunta de Remix inyectado vía CSS */
         .tutorial-article ul li::before {
-            content: '❓';
+            content: '\f0d8'; /* Código unicode de ri-question-line en Remix v4 */
+            font-family: 'remixicon';
             position: absolute;
             left: 0;
-            font-size: 1.1rem;
+            color: var(--acento-cian);
+            font-size: 1.2rem;
             line-height: 1.4;
         }
 
         /* ========================================== */
-        /* NAVEGACIÓN INFERIOR DEL TUTORIAL           */
+        /* NAVEGACIÓN INFERIOR                        */
         /* ========================================== */
         .tutorial-nav {
             display: flex;
@@ -205,7 +201,6 @@
             flex-wrap: wrap;
             gap: 1rem;
             width: 100%;
-            max-width: 100%;
         }
         .btn-secondary-tutorial {
             color: var(--acento-cian);
@@ -229,55 +224,35 @@
             font-size: 0.9rem;
             opacity: 0.7;
             font-style: italic;
-            word-break: break-word;
         }
 
         /* ========================================== */
-        /* AJUSTES RESPONSIVE (MÓVILES)               */
+        /* RESPONSIVE (MÓVILES)                       */
         /* ========================================== */
         @media (max-width: 768px) {
             .tutorial-article { padding: 1rem 0.8rem; }
-            .tutorial-article h2 { font-size: 0.95rem; }
-            .tutorial-article h2 i { font-size: 1.6rem; }
+            .tutorial-article h2 { font-size: 1rem; }
+            .tutorial-article h2 i { font-size: 1.4rem; margin-top: 0.1rem; }
             .tutorial-article p { font-size: 1rem; }
             .tutorial-nav { flex-direction: column; align-items: stretch; text-align: center; }
             
-            /* CRÍTICO: Forzar ajuste en móviles */
-            .info-box, .warning-box { 
-                flex-direction: column; 
-                gap: 0.5rem;
-                padding: 1rem;
-                width: 100%;
-            }
-            .box-header { 
-                flex-direction: row; 
-                gap: 0.4rem;
-                width: 100%;
-            }
+            .info-box, .warning-box { padding: 1rem; gap: 0.5rem; }
+            .box-header { gap: 0.4rem; }
             .box-header i { font-size: 1.2rem; }
             .box-header strong { font-size: 0.95rem; }
             .box-content p { font-size: 0.9rem; }
-            
-            /* Ajuste para citas en móvil */
-            .pull-quote { 
-                padding: 1.2rem 1rem; 
-                font-size: 1rem; 
-                margin: 1.8rem 0; 
-            }
+            .pull-quote { padding: 1.2rem 1rem; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
     <!-- ========================================== -->
-    <!-- BARRA DE NAVEGACIÓN SUPERIOR               -->
+    <!-- BARRA DE NAVEGACIÓN                        -->
     <!-- ========================================== -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Botón hamburguesa para móviles -->
             <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-            <!-- Logo del sitio -->
             <a href="../index.html" class="logo">Cripto <span>Faucets</span> Hunters</a>
-            <!-- Menú de enlaces principales -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="index.html">Tutoriales</a></li>
@@ -288,23 +263,20 @@
     </nav>
 
     <!-- ========================================== -->
-    <!-- CONTENIDO PRINCIPAL DEL TUTORIAL           -->
+    <!-- CONTENIDO PRINCIPAL                        -->
     <!-- ========================================== -->
     <main class="main-content">
         <div class="tutorial-article">
-            <!-- Encabezado principal del tutorial -->
             <header class="page-header">
                 <h1>¿Qué es una criptomoneda?</h1>
                 <p style="color: var(--texto-secundario); font-size: 1.1rem;">Tutorial Básico #1</p>
             </header>
 
-            <!-- SECCIÓN: Introducción -->
             <h2><i class="ri-compass-3-line"></i> Introducción</h2>
             <p>Definición sencilla y compacta: una criptomoneda sirve y se usa para exactamente lo mismo que usted usa su dinero de billetes que conoce de toda la vida. Por ejemplo, usted con las criptomonedas puede comprar casi cualquier producto, realizar pagos de diferentes servicios, realizar inversiones para obtener ganancias, ahorrar, y así mismo puede hacer todo lo que normalmente hace con el dinero efectivo o tarjetas bancarias.</p>
             
             <p>La gran diferencia entre las criptomonedas y el dinero en efectivo del sistema monetario <span class="key-term">FIAT</span> que todos usamos hoy en día es que las criptomonedas solo viven y existen en el mundo digital y nunca salen de allí. Las criptomonedas funcionan gracias a la <span class="key-term">criptografía</span> (es lo que garantiza la seguridad) y a una red de computadoras <span class="key-term">descentralizada</span> global, permitiendo enviar y recibir valor sin necesidad de bancos ni intermediarios.</p>
 
-            <!-- Caja destacada tipo Info -->
             <div class="info-box">
                 <div class="box-header">
                     <i class="ri-lightbulb-flash-line"></i>
@@ -317,13 +289,11 @@
 
             <div class="chapter-divider"></div>
 
-            <!-- SECCIÓN: Capítulo 1 -->
             <h2><i class="ri-history-line"></i> Capítulo 1: El Momento en que Empecé a Sospechar que Mi Dinero Era Raro</h2>
             <p>Esto empezó un día cualquiera. Me encontraba haciendo lo de siempre: preparando pan tostado con mantequilla, pensando en si la tostadora realmente necesitaba ser tan agresiva con el pan.</p>
             <p>Encendí la radio. Una voz muy seria anunciaba que, en el último mes, se habían impreso más billetes que calorías había en todo mi desayuno. Algo así como: "Se imprimió dinero como si fueran panfletos de feria". Y ahí, con el dedo untado de mantequilla, me detuve.</p>
             <p>Me pregunté: ¿el dinero se crea tan fácil como apretar las teclas de imprimir en mi PC? Si es así, ¿cuál es su verdadero valor? ¿Y quién le pone precio a la confianza que sentimos por esos números que aparecen en nuestras cuentas bancarias? Fue en ese instante que empecé a mirar al dinero de forma distinta.</p>
             
-            <!-- Cita destacada (sin ícono decorativo problemático) -->
             <div class="pull-quote">
                 Hasta ese día era, para mí, una abstracción confiable: números digitales o billetes arrugados que representaban mi esfuerzo. Pero ahora... ahora me sonaba a truco de salón.
             </div>
@@ -332,7 +302,6 @@
 
             <div class="chapter-divider"></div>
 
-            <!-- SECCIÓN: Capítulo 2 -->
             <h2><i class="ri-refresh-line"></i> Capítulo 2: ¿Y Si Reinventamos el Dinero?</h2>
             <p>La palabra "criptomoneda" está formada por dos partes que nos ayudan a entenderla mejor.<br>
             La primera, <span class="key-term">cripto</span>, significa que el dinero está protegido por métodos especiales que garantizan que nadie pueda falsificarlo ni robarlo, pero sin que haya una persona vigilando cada movimiento. Todo funciona automáticamente gracias a un sistema que verifica cada transacción para que sea segura y transparente.<br>
@@ -359,7 +328,6 @@
 
             <div class="chapter-divider"></div>
 
-            <!-- SECCIÓN: Capítulo 3 -->
             <h2><i class="ri-plant-line"></i> Capítulo 3: Más Allá de Bitcoin: La Jungla de las Criptomonedas</h2>
             <p>Bitcoin fue el pionero, el loco que abrió la puerta. Pero no se fue solo: lo siguieron cientos, luego miles. Hoy estamos ante una jungla cripto, y te juro que no estoy exagerando.</p>
             <p>Está, por ejemplo, <span class="key-term">Ethereum</span>, que dijo: "¿Y si en vez de solo mover dinero también ejecutamos programas enteros dentro de esta red?" Nació así un ordenador descentralizado gigante, donde puedes correr <span class="key-term">contratos inteligentes</span>, crear juegos, almacenar arte digital. Sí, ARTE. Pero ya llegaremos a eso.</p>
@@ -370,13 +338,11 @@
 
             <div class="chapter-divider"></div>
 
-            <!-- SECCIÓN: Capítulo 4 -->
             <h2><i class="ri-alarm-warning-line"></i> Capítulo 4: Lo Bueno, Lo Malo y Lo que Parece una Secta</h2>
             <p>Si te digo que el mundo cripto es perfecto, yo te estaría mintiendo. Y las mentiras, en este mundo, se pagan caro.</p>
             <p>Lo bueno ya lo dijimos: independencia, innovación, apertura, transparencia. Pero... también hay que hablar del humo. Porque cuando la ambición y la ignorancia se encuentran en un mercado nuevo, las <span class="key-term">estafas</span> aparecen vestidas de gala.</p>
             <p>Me pasó más de una vez ver cómo alguien caía en una promesa de "multiplica tu inversión en 48 horas" solo para encontrarse con un grupo de Telegram vacío y una billetera vacía. Estafas, <span class="key-term">pirámides</span>, "proyectos visionarios" que no eran más que fachadas.</p>
             
-            <!-- Caja destacada tipo Advertencia -->
             <div class="warning-box">
                 <div class="box-header">
                     <i class="ri-error-warning-line"></i>
@@ -393,7 +359,6 @@
 
             <div class="chapter-divider"></div>
 
-            <!-- SECCIÓN: Capítulo 5 -->
             <h2><i class="ri-building-4-line"></i> Capítulo 5: Cuando los Gigantes Se Asustaron</h2>
             <p>Algo me parecía extraño mientras más me adentraba en este mundo. Por un lado, las criptomonedas ofrecían transparencia, seguridad, descentralización... todo muy noble. Pero por otro lado, los titulares en los medios parecían gritar lo contrario:<br>
             "Bitcoin arruina el planeta", "Fraude a la vista", "Moneda de criminales".<br>
@@ -413,7 +378,6 @@
 
             <div class="chapter-divider"></div>
 
-            <!-- SECCIÓN: Capítulo 6 -->
             <h2><i class="ri-compasses-2-line"></i> Capítulo 6: Lo Verdaderamente Fascinante</h2>
             <p>Lo más fascinante de todo esto no son las pantallas ni las billeteras digitales. Lo más fascinante es lo filosófico. Es lo que pasa cuando un grupo de programadores, economistas, soñadores y rebeldes se sientan frente a una hoja en blanco y se preguntan:<br>
             "¿Y si el dinero pudiera funcionar de otra manera?"<br>
@@ -426,7 +390,6 @@
             </ul>
             <p>Criptomonedas no es solo "tecnología"; es <span class="key-term">cultura</span>. Es decir: es la manera en la que una comunidad decide organizar su economía, su confianza, su justicia. Y eso es revolucionario.</p>
             
-            <!-- Cita destacada limpia (sin ícono decorativo) -->
             <div class="pull-quote">
                 En vez de delegar todo en un banco que te cobra por respirar, acá tú tienes las llaves. Literalmente: tu <span class="key-term">clave privada</span> es tu castillo. Y eso es tan poderoso como desafiante.
             </div>
@@ -437,7 +400,6 @@
 
             <div class="chapter-divider"></div>
 
-            <!-- SECCIÓN: Capítulo 7 -->
             <h2><i class="ri-footprint-line"></i> Capítulo 7: El Camino del Aprendizaje Personal<br>(...y una pista hacia lo que sigue en Cripto Faucets Hunters)</h2>
             <p>Cuando miro hacia atrás, no veo un camino recto. Veo un recorrido lleno de tropiezos, clics impulsivos, foros que parecían escritos en algún lenguaje extraterrestre, y pequeños logros que me hicieron sonreír.</p>
             <p>No me convertí en un gurú cripto. No tengo un yate con el logo de Ethereum. Pero entendí cosas profundas que me cambiaron para siempre.</p>
@@ -450,9 +412,9 @@
             Ahora que ya entendemos qué es una criptomoneda, ¿no te da curiosidad saber cómo funciona eso que la hace posible? Esa tecnología con nombre de cadena y alma de red...</p>
             <p style="color: var(--texto-principal); font-weight: 600; margin-top: 1.5rem;">Te espero en el próximo post.<br>No porque yo tenga todas las respuestas.<br>Sino porque la aventura recién empieza.</p>
 
-            <!-- Rincón del Hunter (Caja de cita final) -->
+            <!-- Rincón del Hunter: Ícono cambiado a brújula (ri-compass-3-line) por coherencia temática -->
             <div class="quote-box" style="margin-top: 2.5rem;">
-                <h3><i class="ri-brain-line" style="margin-right:0.5rem; vertical-align:middle;"></i> Rincón del Hunter</h3>
+                <h3><i class="ri-compass-3-line" style="margin-right:0.5rem; vertical-align:middle; font-size:1.2rem;"></i> Rincón del Hunter</h3>
                 <p>"Aprendí que el dinero no es solo números, es narrativa. Y que entender las criptomonedas no es dominar fórmulas, sino recuperar el derecho a hacer preguntas incómodas sin pedir permiso."</p>
             </div>
 
@@ -465,7 +427,7 @@
     </main>
 
     <!-- ========================================== -->
-    <!-- PIE DE PÁGINA GLOBAL                       -->
+    <!-- PIE DE PÁGINA                              -->
     <!-- ========================================== -->
     <footer class="footer">
         <p>&copy; 2026 Cripto <span>Faucets</span> Hunters. Todos los derechos reservados.</p>
@@ -473,20 +435,17 @@
     </footer>
 
     <!-- ========================================== -->
-    <!-- SCRIPT PARA EL MENÚ HAMBURGUESA            -->
+    <!-- SCRIPT MENÚ HAMBURGUESA                    -->
     <!-- ========================================== -->
     <script>
-        // Selección de elementos del menú
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
 
-        // Evento para abrir/cerrar menú al tocar hamburguesa
         hamburger.addEventListener('click', (e) => { 
             e.stopPropagation(); 
             navMenu.classList.toggle('active'); 
         });
 
-        // Evento para cerrar menú al tocar fuera de él
         document.addEventListener('click', (e) => {
             const isMenuOpen = navMenu.classList.contains('active');
             const isClickInsideMenu = navMenu.contains(e.target);
@@ -496,7 +455,6 @@
             }
         });
 
-        // Cerrar menú al hacer clic en cualquier enlace interno
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => navMenu.classList.remove('active'));
         });
