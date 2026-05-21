@@ -419,3 +419,48 @@ body {
     .featured-intro { padding: 1.8rem 1.2rem; }
     .category-section h2 { font-size: 1.3rem; }
 }
+/* ========================================== */
+/* BOTÓN FLOTANTE "VOLVER AL INICIO"          */
+/* ========================================== */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background-color: var(--acento-cian);
+    color: var(--fondo-principal);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-size: 1.2rem;
+}
+#scrollToTopBtn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+#scrollToTopBtn:hover {
+    background-color: var(--acento-verde);
+    color: var(--fondo-principal);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 768px) {
+    #scrollToTopBtn {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+}
