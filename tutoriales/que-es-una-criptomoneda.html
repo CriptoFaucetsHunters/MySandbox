@@ -269,7 +269,7 @@
         <div class="tutorial-article">
             <header class="page-header">
                 <h1>¿Qué es una criptomoneda?</h1>
-                <p style="color: var(--texto-secundario); font-size: 1.1rem;">Tutorial Básico #1</p>
+                <!-- Subtítulo eliminado según solicitud -->
             </header>
 
             <h2><i class="ri-compass-3-line"></i> Introducción</h2>
@@ -412,7 +412,7 @@
             Ahora que ya entendemos qué es una criptomoneda, ¿no te da curiosidad saber cómo funciona eso que la hace posible? Esa tecnología con nombre de cadena y alma de red...</p>
             <p style="color: var(--texto-principal); font-weight: 600; margin-top: 1.5rem;">Te espero en el próximo post.<br>No porque yo tenga todas las respuestas.<br>Sino porque la aventura recién empieza.</p>
 
-            <!-- Rincón del Hunter: Ícono cambiado a brújula (ri-compass-3-line) por coherencia temática -->
+            <!-- Rincón del Hunter: Ícono de brújula (ri-compass-3-line) por coherencia temática -->
             <div class="quote-box" style="margin-top: 2.5rem;">
                 <h3><i class="ri-compass-3-line" style="margin-right:0.5rem; vertical-align:middle; font-size:1.2rem;"></i> Rincón del Hunter</h3>
                 <p>"Aprendí que el dinero no es solo números, es narrativa. Y que entender las criptomonedas no es dominar fórmulas, sino recuperar el derecho a hacer preguntas incómodas sin pedir permiso."</p>
@@ -438,14 +438,17 @@
     <!-- SCRIPT MENÚ HAMBURGUESA                    -->
     <!-- ========================================== -->
     <script>
+        // Selección de elementos del menú
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
 
+        // Evento para abrir/cerrar menú al tocar hamburguesa
         hamburger.addEventListener('click', (e) => { 
             e.stopPropagation(); 
             navMenu.classList.toggle('active'); 
         });
 
+        // Evento para cerrar menú al tocar fuera de él
         document.addEventListener('click', (e) => {
             const isMenuOpen = navMenu.classList.contains('active');
             const isClickInsideMenu = navMenu.contains(e.target);
@@ -455,6 +458,7 @@
             }
         });
 
+        // Cerrar menú al hacer clic en cualquier enlace interno
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => navMenu.classList.remove('active'));
         });
