@@ -346,7 +346,59 @@ body {
     padding-left: 0;
 }
 
-/* Utilidades */
+/* Enlace contextual dentro del texto */
+.inline-link {
+    color: var(--acento-cian);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 212, 255, 0.3);
+    transition: all 0.3s ease;
+}
+.inline-link:hover {
+    text-decoration-color: var(--acento-cian);
+    color: var(--acento-verde);
+}
+
+/* Navegación final (Next Steps) */
+.next-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0 2rem 0;
+}
+
+.step-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background-color: var(--fondo-tarjeta);
+    border: 1px solid var(--borde-sutil);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    text-decoration: none;
+    color: var(--texto-principal);
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.step-card i {
+    font-size: 1.4rem;
+    color: var(--acento-cian);
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+    border-color: var(--acento-cian);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.15);
+}
+
+.step-card:hover i {
+    transform: translateX(4px);
+}
+
 .text-cyan { color: var(--acento-cian); font-weight: bold; }
 
 /* ===== 6. PÁGINAS DE LISTADO (Tutoriales/Reviews) ===== */
@@ -390,38 +442,7 @@ body {
     vertical-align: middle;
 }
 
-/* ===== 8. RESPONSIVE ===== */
-@media (max-width: 768px) {
-    .hamburger { display: flex; }
-    .logo { margin-left: 60px; text-align: left; }
-    .nav-menu {
-        position: fixed; top: 70px; left: -100%; width: 80%; max-width: 300px;
-        height: auto; max-height: calc(100vh - 70px); flex-direction: column;
-        background-color: var(--fondo-secundario); padding: 2rem 1rem; gap: 1.5rem;
-        transition: 0.3s ease-in-out; border-right: 2px solid var(--acento-cian);
-        box-shadow: 5px 0 20px rgba(0,0,0,0.5); overflow-y: auto; margin-left: 0;
-    }
-    .nav-menu.active { left: 0; }
-    
-    .hero h1 { font-size: 1.8rem; }
-    .hero-intro p { font-size: 1rem; }
-    .section-title { font-size: 1.5rem; }
-    .section-title i { font-size: 1.4rem; }
-    .cards-grid { grid-template-columns: 1fr; }
-    .main-content { padding: 1rem; margin-top: 70px; }
-    .card-top { gap: 0.6rem; }
-    .card-icon { font-size: 1.3rem; }
-    .card h3 { font-size: 1.05rem; }
-    
-    .page-header h1 { font-size: 1.8rem; }
-    .content-card { padding: 1.5rem; }
-    .content-card h3 { font-size: 1.2rem; }
-    .featured-intro { padding: 1.8rem 1.2rem; }
-    .category-section h2 { font-size: 1.3rem; }
-}
-/* ========================================= */
-/* BOTÓN FLOTANTE "VOLVER AL INICIO"          */
-/* ========================================== */
+/* ===== 8. BOTÓN FLOTANTE "VOLVER AL INICIO" ===== */
 #scrollToTopBtn {
     position: fixed;
     bottom: 20px;
@@ -456,11 +477,38 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 @media (max-width: 768px) {
-    #scrollToTopBtn {
-        bottom: 15px;
-        right: 15px;
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
+    #scrollToTopBtn { bottom: 15px; right: 15px; width: 40px; height: 40px; font-size: 1.1rem; }
+}
+
+/* ===== 9. RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .logo { margin-left: 60px; text-align: left; }
+    .nav-menu {
+        position: fixed; top: 70px; left: -100%; width: 80%; max-width: 300px;
+        height: auto; max-height: calc(100vh - 70px); flex-direction: column;
+        background-color: var(--fondo-secundario); padding: 2rem 1rem; gap: 1.5rem;
+        transition: 0.3s ease-in-out; border-right: 2px solid var(--acento-cian);
+        box-shadow: 5px 0 20px rgba(0,0,0,0.5); overflow-y: auto; margin-left: 0;
     }
+    .nav-menu.active { left: 0; }
+    
+    .hero h1 { font-size: 1.8rem; }
+    .hero-intro p { font-size: 1rem; }
+    .section-title { font-size: 1.5rem; }
+    .section-title i { font-size: 1.4rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .main-content { padding: 1rem; margin-top: 70px; }
+    .card-top { gap: 0.6rem; }
+    .card-icon { font-size: 1.3rem; }
+    .card h3 { font-size: 1.05rem; }
+    
+    .page-header h1 { font-size: 1.8rem; }
+    .content-card { padding: 1.5rem; }
+    .content-card h3 { font-size: 1.2rem; }
+    .featured-intro { padding: 1.8rem 1.2rem; }
+    .category-section h2 { font-size: 1.3rem; }
+    
+    .next-steps-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .step-card { padding: 1rem; font-size: 1rem; }
 }
