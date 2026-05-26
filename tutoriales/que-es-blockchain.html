@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es Blockchain? - Cripto Faucets Hunters</title>
+    
+    <!-- Enlace a la librería de íconos Remix (CDN oficial) -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Enlace a la hoja de estilos principal del sitio -->
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <!-- ========================================== -->
+    <!-- ESTILOS EXCLUSIVOS PARA ESTA PÁGINA        -->
+    <!-- ========================================== -->
+    <style>
+        /* Contenedor principal: limita ancho máximo para lectura cómoda */
+        .tutorial-article { 
+            max-width: 820px; 
+            margin: 0 auto; 
+            padding: 2rem 1rem; 
+            overflow-x: hidden; 
+            width: 100%; 
+            box-sizing: border-box; 
+        }
+        
+        /* ========================================== */
+        /* ENCABEZADOS DE SECCIÓN (H2)                */
+        /* ========================================== */
+        .tutorial-article h2 {
+            color: var(--texto-principal);
+            font-size: 1.05rem;
+            margin: 2.5rem 0 1.2rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--acento-cian);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            line-height: 1.4;
+            word-break: break-word;
+        }
+        
+        .tutorial-article h2 i { 
+            color: var(--acento-cian); 
+            font-size: 1.5rem; 
+            flex-shrink: 0; 
+            margin-top: 0.15rem; 
+        }
+        
+        .tutorial-article p {
+            color: var(--texto-secundario);
+            line-height: 1.85;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .chapter-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--borde-sutil), transparent);
+            margin: 2.5rem 0;
+        }
+
+        /* ========================================== */
+        /* CAJAS DESTACADAS (INFO Y ADVERTENCIA)      */
+        /* ========================================== */
+        .info-box, .warning-box {
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin: 1.8rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+        
+        .info-box {
+            background-color: rgba(0, 212, 255, 0.06);
+            border-left: 3px solid var(--acento-cian);
+        }
+        
+        .warning-box {
+            background-color: rgba(204, 255, 0, 0.06);
+            border-left: 3px solid var(--acento-verde);
+        }
+        
+        .box-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+        .box-header i { 
+            font-size: 1.3rem; 
+            flex-shrink: 0; 
+            color: inherit; 
+        }
+        .box-header strong {
+            color: var(--texto-principal);
+            font-size: 1rem;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .box-content { width: 100%; }
+        .box-content p { 
+            margin: 0; 
+            font-size: 0.95rem; 
+            color: var(--texto-secundario); 
+            word-break: break-word; 
+            overflow-wrap: anywhere; 
+            line-height: 1.6;
+            hyphens: auto;
+        }
+
+        /* ========================================== */
+        /* CITAS DESTACADAS (PULL QUOTES)             */
+        /* ========================================== */
+        .pull-quote {
+            border-left: 3px solid var(--acento-cian);
+            padding: 1.5rem 1.8rem;
+            margin: 2.2rem 0;
+            background: rgba(0, 212, 255, 0.04);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--texto-principal);
+            line-height: 1.6;
+            max-width: 100%;
+            box-sizing: border-box;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* ========================================== */
+        /* TÉRMINOS CLAVE RESALTADOS                  */
+        /* ========================================== */
+        .key-term {
+            color: var(--acento-cian);
+            font-weight: 600;
+            background: rgba(0, 212, 255, 0.12);
+            padding: 0.15rem 0.4rem;
+            border-radius: 5px;
+            white-space: normal;
+            word-break: break-word;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        /* Listas con íconos de Remix */
+        .tutorial-article ul { 
+            list-style: none; 
+            padding: 0; 
+            margin: 1.5rem 0;
+            max-width: 100%;
+        }
+        .tutorial-article ul li {
+            color: var(--texto-secundario);
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        .tutorial-article ul li::before {
+            content: '\f0d8';
+            font-family: 'remixicon';
+            position: absolute;
+            left: 0;
+            color: var(--acento-cian);
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        /* ========================================== */
+        /* SECCIÓN DE FUENTES RECOMENDADAS            */
+        /* ========================================== */
+        .sources-section {
+            margin: 3rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 212, 255, 0.04);
+            border-radius: 10px;
+            border-left: 3px solid var(--acento-cian);
+        }
+        .sources-section h3 {
+            color: var(--texto-principal);
+            font-size: 1.1rem;
+            margin: 0 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .sources-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sources-section li {
+            margin: 0.5rem 0;
+            color: var(--texto-secundario);
+            font-size: 0.95rem;
+        }
+        .sources-section a {
+            color: var(--acento-cian);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .sources-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================== */
+        /* NAVEGACIÓN INFERIOR                        */
+        /* ========================================== */
+        .tutorial-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--borde-sutil);
+            flex-wrap: wrap;
+            gap: 1rem;
+            width: 100%;
+        }
+        .btn-secondary-tutorial {
+            color: var(--acento-cian);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--acento-cian);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            word-break: break-word;
+        }
+        .btn-secondary-tutorial:hover {
+            background-color: var(--acento-cian);
+            color: var(--fondo-principal);
+        }
+        .btn-placeholder {
+            color: var(--texto-secundario);
+            font-size: 0.9rem;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        /* ========================================== */
+        /* IMÁGENES DEL TUTORIAL                      */
+        /* ========================================== */
+        .tutorial-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 2.5rem 0;
+            border-radius: 12px;
+            display: block;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background-color: var(--fondo-secundario);
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        /* ========================================== */
+        /* RESPONSIVE (MÓVILES)                       */
+        /* ========================================== */
+        @media (max-width: 768px) {
+            .tutorial-article { padding: 1rem 0.8rem; }
+            .tutorial-article h2 { font-size: 1rem; }
+            .tutorial-article h2 i { font-size: 1.4rem; margin-top: 0.1rem; }
+            .tutorial-article p { font-size: 1rem; }
+            .tutorial-nav { flex-direction: column; align-items: stretch; text-align: center; }
+            
+            .info-box, .warning-box { padding: 1rem; gap: 0.5rem; }
+            .box-header { gap: 0.4rem; }
+            .box-header i { font-size: 1.2rem; }
+            .box-header strong { font-size: 0.95rem; }
+            .box-content p { font-size: 0.9rem; }
+            .pull-quote { padding: 1.2rem 1rem; font-size: 1rem; }
+            
+            .tutorial-image { 
+                margin: 1.8rem 0; 
+                padding: 0.5rem; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================== -->
+    <!-- BARRA DE NAVEGACIÓN                        -->
+    <!-- ========================================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <a href="../index.html" class="logo">Cripto <span>Faucets</span> Hunters</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="index.html">Tutoriales</a></li>
+                <li><a href="../reviews/index.html">Reviews</a></li>
+                <li><a href="../bienvenida.html">Nosotros</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================== -->
+    <!-- CONTENIDO PRINCIPAL                        -->
+    <!-- ========================================== -->
+    <main class="main-content">
+        <div class="tutorial-article">
+            <header class="page-header">
+                <h1>¿Qué es Blockchain?</h1>
+            </header>
+
+            <h2><i class="ri-compass-3-line"></i> Introducción</h2>
+            
+            <!-- Frase realzada con flecha -->
+            <p><span class="key-term">Definición sencilla y compacta <i class="ri-arrow-right-line"></i></span> la palabra blockchain viene del idioma inglés y está formada por dos palabras. La primera palabra es Block que en español significa Bloque. La segunda palabra es Chain y en español significa Cadena. Así que cuando traducimos Blockchain al español sería así: Cadena de Bloques.</p>
+            
+            <p>Entonces una <span class="key-term">Blockchain</span> (Cadena de Bloques) es una tecnología que funciona como un libro de cuentas digital, donde cada transacción se guarda en bloques enlazados entre sí, formando una cadena segura e inmutable que todos pueden consultar pero nadie puede alterar.</p>
+
+            <!-- IMAGEN 1: Introducción (después de la definición) -->
+            <img src="../img/img-b-1-intro.JPG" alt="Libro digital con candados representando blockchain" class="tutorial-image" loading="lazy">
+
+            <p>Si con eso ya tienes una idea clara, perfecto. Pero si quieres entender cómo funciona realmente, por qué no depende de un solo guardián, y qué papel juegan los mineros, validadores y exploradores en todo esto, te invito a seguir leyendo el resto del tutorial.</p>
+
+            <div class="chapter-divider"></div>
+
+            <h2><i class="ri-brain-line"></i> Capítulo 1: El día en que mi cerebro quiso renunciar</h2>
+            <p>Les juro que no fue culpa mía. Yo solo quería entender cómo funcionaba Bitcoin. Ya sabes, por cultura general, para no parecer un cavernícola digital. Pero cada vez que abría un video o un artículo, aparecían términos como <span class="key-term">hash criptográfico</span>, <span class="key-term">nodos distribuidos</span>, <span class="key-term">minería proof-of-work</span>... y mi cerebro, que es muy trabajador pero también algo temperamental, simplemente decía:<br>
+            <em>"Listo, me voy. Que lo entienda otro."</em></p>
+
+            <!-- IMAGEN 2: Capítulo 1 (después de la frase del cerebro renunciando) -->
+            <img src="../img/img-b-2-cerebro.JPG" alt="Cerebro con maleta renunciando a entender términos técnicos" class="tutorial-image" loading="lazy">
+
+            <p>Pero yo insistí. Porque si algo aprendí del mundo cripto es que no todo es tan complicado como parece... solo está mal contado. Así que me senté, agarré una hoja en blanco y me propuse descifrar esto de blockchain con algo que sí pudiera entender: bloques de construcción. Literal. Como los de jugar.</p>
+
+            <div class="chapter-divider"></div>
+
+            <h2><i class="ri-wall-line"></i> Capítulo 2: Imagínate un muro... pero sin albañil jefe</h2>
+            <p>Piensa en un muro de bloques. Uno bien largo, ordenado, donde cada bloque lleva escrita una historia. Ese primer bloque dice: "Juan le mandó 1 Bitcoin a Sofía." El segundo agrega: "Laura recibió 0.5 Bitcoin de un faucet en 2016." Y así. Cada bloque contiene información sobre una transferencia monetaria y está pegado al bloque anterior de forma matemática, como si tuvieran un código secreto que los mantiene unidos.</p>
+            <p>Ahora, imagina que no hay un solo albañil construyendo esta pared, sino miles, millones. Todos tienen una copia exacta del muro completo. Si uno quiere agregar un nuevo bloque, los demás primero revisan que esté bien, que no tenga trampa, que no contradiga ningún bloque anterior. Y solo si todos están de acuerdo... el bloque se agrega. Ni antes, ni después.</p>
+            <p>Eso es blockchain: una base de datos compartida, donde cada bloque guarda información y donde la seguridad se basa en el consenso de muchos, no en la autoridad de uno. Es decir Blockchain es una Cadena de Bloques de información o como más me gusta son Bloques que contienen información que están encadenados (unidos) entre sí.</p>
+
+            <!-- IMAGEN 3: Capítulo 2 (después de la definición de base de datos compartida) -->
+            <img src="../img/img-b-3-muro.JPG" alt="Muro de bloques con transacciones y códigos hash" class="tutorial-image" loading="lazy">
+
+            <p>Cuando hablamos de una "red blockchain", nos referimos a una comunidad global formada por millones de computadoras distribuidas por todo el planeta. Algunas de estas computadoras pertenecen a usuarios comunes, como tú y como yo, que participan voluntariamente para mantener la red; otras son propiedad de instituciones particulares que también colaboran en la validación y seguridad del sistema.</p>
+            <p>Esta red no es un solo servidor ni una entidad central, sino un sistema interconectado y descentralizado donde cada nodo tiene una copia del libro de cuentas digital. Todos trabajan juntos para verificar que las transacciones sean legítimas y que nadie pueda hacer trampa, garantizando así la confianza sin depender de un único guardián.</p>
+
+            <!-- IMAGEN 4: Capítulo 2 (después del párrafo de la red global) -->
+            <img src="../img/img-b-4-red.JPG" alt="Mapa mundial con computadoras conectadas representando la red blockchain" class="tutorial-image" loading="lazy">
+
+            <div class="chapter-divider"></div>
+
+            <h2><i class="ri-shield-check-line"></i> Capítulo 3: ¿Por qué esto importa más que tu app preferida de entregas a domicilio?</h2>
+            <p>Porque antes, toda transferencia monetaria importante tenía un guardián: un banco, un gobierno, una empresa que nos decía si podíamos confiar. Y ahora, gracias a la blockchain, la confianza se escribe en código de programación y se almacena en miles de millones de computadoras conectadas. No porque sean perfectas. Sino porque si una miente, las otras la ignoran.</p>
+            <p>Es un sistema inmune a trampas, donde los incentivos están diseñados para premiar a quienes juegan limpio. Y eso, en un mundo de estafas con trajes caros, suena casi utópico pero por suerte es real.</p>
+
+            <div class="chapter-divider"></div>
+
+            <h2><i class="ri-pick-line"></i> Capítulo 4: ¿Quién hace esos bloques? (La magia de los mineros y validadores)</h2>
+            <p>Hasta ahora, ya entendimos que blockchain es como una pared infinita de bloques llenos de información. Pero… ¿quién los pone ahí? ¿Quién decide qué historia es digna de un nuevo bloque?<br>
+            Spoiler: no hay un albañil jefe, pero sí hay miles de millones de obreros voluntarios repartidos por el mundo, compitiendo o colaborando para ganarse el honor (y una recompensa digital) de colocar el siguiente bloque.<br>
+            A estos obreros les dicen "mineros" si hablamos de blockchains como Bitcoin, o "validadores" si hablamos de otras redes blockchain como Ethereum (versión moderna).</p>
+            
+            <p>Los mineros trabajan con computadoras potentes que resuelven acertijos matemáticos absurdamente difíciles. ¿Por qué? Porque resolver ese acertijo demuestra que hicieron el esfuerzo (lo que en lenguaje cripto se llama <span class="key-term">proof-of-work</span> (prueba-de-trabajo)). Y el primero en resolverlo, gana: se gana el derecho a poner el siguiente bloque… y a recibir una pequeña recompensa en bitcoins nuevecitos, recién horneados por la red.</p>
+            <p>En cambio, en otros sistemas como Ethereum más reciente, no se resuelve ningún acertijo. Ahí no se les dice mineros sino validadores. Los validadores son usuarios que demuestran compromiso bloqueando parte de su dinero digital como garantía (<span class="key-term">proof-of-stake</span>(prueba-de-bloqueo)). Cuanto más confían (y más bloquean), más chances tienen de ser elegidos aleatoriamente para validar un nuevo bloque. Si lo hacen bien, ganan. Si hacen trampa, pierden esa garantía. Sencillo y elegante.</p>
+            
+            <div class="info-box">
+                <div class="box-header">
+                    <i class="ri-lightbulb-flash-line"></i>
+                    <strong>En resumen:</strong>
+                </div>
+                <div class="box-content">
+                    <ul>
+                        <li>En Bitcoin, los bloques se "pican" como en una mina.</li>
+                        <li>En Ethereum, se "apuestan" como en una mesa de confianza.</li>
+                    </ul>
+                    <p>En ambos casos, los bloques no se crean por capricho ni magia, sino como resultado de un proceso informático-matemático que asegura que todo sea justo, transparente y sin intermediarios sospechosos.</p>
+                </div>
+            </div>
+
+            <div class="chapter-divider"></div>
+
+            <h2><i class="ri-search-eye-line"></i> Capítulo 5: ¿Y qué pasa si quiero mirar el muro? (Exploradores de bloques)</h2>
+            <p>Hasta ahora, ya sabes que existe un gran muro de bloques (blockchain), lleno de transacciones, bien organizadito y validado por miles de millones de personas. Pero… ¿cómo sé que todo eso es real? ¿Cómo puedo mirar con mis propios ojos qué hay en cada bloque?<br>
+            Fácil: con un explorador de bloques.</p>
+            <p>Pensemos en este muro como un museo. Gigante. Cada bloque es una vitrina con información y cada transacción o transferencia monetaria es una pequeña obra con su historia. El explorador de bloques es como una linterna + lupa + guía turístico digital. Tú entras, escribes una dirección (por ejemplo, tu billetera), y el explorador te muestra:</p>
+            <ul>
+                <li>Cuántos bloques se han creado hasta ahora</li>
+                <li>Qué transacciones están en cada bloque</li>
+                <li>Cuándo ocurrieron</li>
+                <li>Qué billeteras participaron</li>
+                <li>Cuánto se movió y hacia dónde</li>
+            </ul>
+            <p>Todo transparente, público y sin intermediarios. Tú puedes ver en tiempo real si una transacción fue confirmada, cuánto pagaste de comisión, o incluso si alguien movió una fortuna en criptomonedas desde una dirección misteriosa.<br>
+            Los exploradores más famosos se llaman cosas como Blockchain.com, Etherscan.io, o Solscan.io, según la red blockchain en la que quieras buscar.</p>
+            
+            <div class="pull-quote">
+                Ver la blockchain es como mirar el código fuente del dinero digital. Ahí no hay humo ni trucos de mago. Todo queda registrado. Para siempre.
+            </div>
+
+            <div class="chapter-divider"></div>
+
+            <h2><i class="ri-building-3-line"></i> Capítulo 6: No es una sola red blockchain... es un barrio entero (¡y cada red tiene su estilo!)</h2>
+            <p>Una vez que entiendes cómo se construye el muro llamado blockchain, puede que tu cerebro ingenuo —como el mío— piense:<br>
+            "Listo, ya entendí. Hay UNA red blockchain universal donde viven todas las criptomonedas."<br>
+            Bueno… spoiler: no señor.<br>
+            En realidad, cada red blockchain es como su propio barrio digital, con su identidad, vecinos, reglas y hasta su propio estilo arquitectónico.</p>
+            
+            <div class="info-box">
+                <div class="box-header">
+                    <i class="ri-home-smile-line"></i>
+                    <strong>🏙️ El barrio exclusivo: Bitcoin</strong>
+                </div>
+                <div class="box-content">
+                    <p>Este es un barrio minimalista. Tiene una sola avenida principal: enviar y recibir bitcoins. Nada de apps, contratos, ni adornos. Todo es sobrio, seguro, y lento como un abuelo que cruza la calle con dignidad. Pero nadie se mete con él. Porque funciona. Y porque fue el primero en construir su muro.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="box-header">
+                    <i class="ri-building-2-line"></i>
+                    <strong>🏗️ La ciudad vertical: Ethereum</strong>
+                </div>
+                <div class="box-content">
+                    <p>Acá todo es más caótico pero mucho más vivo. Ethereum no es solo una red donde vive Ether, su moneda principal. También es un rascacielos lleno de aplicaciones descentralizadas, contratos inteligentes y miles de tokens que alquilan espacio en el edificio. Es la gran metrópolis del mundo cripto.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="box-header">
+                    <i class="ri-roadmap-line"></i>
+                    <strong>🚀 Los vecindarios alternativos: Solana, BNB Chain, Polygon…</strong>
+                </div>
+                <div class="box-content">
+                    <p>Cada uno con su onda. Solana es como una empresa emergente hiperactiva: quiere velocidad, baja comisión y escalabilidad, aunque a veces se apaga la luz. BNB Chain (de Binance) tiene un aire de ciudad planificada con centro comercial incluido. Polygon, por su parte, actúa como el puente que conecta a Ethereum con barrios más livianos.</p>
+                </div>
+            </div>
+
+            <p>Y esto no es loquísimo solo por la variedad. Es clave para entender por qué una wallet que usas en una red blockchain puede no servir en otra, o por qué un token que ves en Solana no existe en Ethereum.<br>
+            Así que no, no es una sola red blockchain. Es un archipiélago digital lleno de islas con su propia cultura, moneda y ritmo. Y tu, como explorador de este nuevo mundo, puedes moverte entre ellas... siempre que sepas cómo navegar sus mapas.</p>
+
+            <div class="chapter-divider"></div>
+
+            <h2><i class="ri-balloon-line"></i> Capítulo 7: Lo bueno, lo malo y lo delirantemente genial del blockchain</h2>
+            <p>A esta altura, uno podría pensar que blockchain es lo mejor desde que inventaron el pan con ajo. Pero como todo en la vida (y más aún en el mundo cripto), hay capas, matices y alguna que otra espina tecnológica escondida.</p>
+            
+            <div class="info-box">
+                <div class="box-header">
+                    <i class="ri-checkbox-circle-line" style="color: var(--acento-verde);"></i>
+                    <strong>✅ Lo bueno: confianza sin permiso</strong>
+                </div>
+                <div class="box-content">
+                    <ul>
+                        <li><strong>Transparencia total:</strong> Cada transacción queda registrada. Tú puedes ver, revisar y auditar sin pedirle permiso a nadie.</li>
+                        <li><strong>Sin intermediarios:</strong> No hay que confiar en bancos, empresas ni gobiernos. Solo en el código.</li>
+                        <li><strong>Acceso global:</strong> Cualquiera con internet puede participar. No importa si estás en Japón o Helsinki.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <div class="box-header">
+                    <i class="ri-close-circle-line" style="color: var(--acento-verde);"></i>
+                    <strong>❌ Lo malo: no es magia, es código… y eso tiene sus líos</strong>
+                </div>
+                <div class="box-content">
+                    <ul>
+                        <li><strong>Complejidad técnica:</strong> Para muchas personas, entender blockchain es como leer jeroglíficos en modo oscuro.</li>
+                        <li><strong>Escalabilidad y velocidad:</strong> Algunas redes todavía son lentas o se congestionan cuando todos quieren jugar al mismo tiempo.</li>
+                        <li><strong>Consumo energético:</strong> Blockchains como Bitcoin requieren muchísima energía.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pull-quote">
+                🤯 Y lo delirantemente genial... Programar dinero, NFTs, economías descentralizadas. Blockchain no es perfecto, pero es una revolución silenciosa. Una que no necesita banderas, solo bloques.
+            </div>
+
+            <div class="chapter-divider"></div>
+
+            <h2><i class="ri-lock-unlock-line"></i> Capítulo 8: ¿Y no se puede hackear todo esto? (Spoiler: casi nunca)</h2>
+            <p>A ver. Entiendo tu sospecha. Yo también he visto mil veces películas donde un nerd con capucha hackea bancos en 30 segundos mientras toma un refresco frío.<br>
+            Pero blockchain no funciona como las cosas tradicionales de internet. Y por eso, hackearla es como tratar de cambiar una baldosa de una plaza... mientras millones de cámaras te están grabando. Y cada cámara tiene una copia exacta del diseño original.</p>
+            
+            <div class="info-box">
+                <div class="box-header">
+                    <i class="ri-shield-keyhole-line"></i>
+                    <strong>¿Por qué es tan segura?</strong>
+                </div>
+                <div class="box-content">
+                    <ul>
+                        <li>Cada bloque tiene un código único llamado <span class="key-term">hash</span>, como una huella digital.</li>
+                        <li>Ese hash depende del contenido del bloque anterior.</li>
+                        <li>Si alguien intenta modificar un bloque, se rompe toda la secuencia: el hash cambia y los bloques siguientes ya no encajan.</li>
+                        <li>Cada nodo tiene su propia copia de la cadena entera. Si una copia intenta hacer trampa, las otras la ignoran.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Para hackear una blockchain, tendrías que convencer a más del 51% de todos los nodos del planeta de mentir al mismo tiempo. A eso se le llama un <span class="key-term">ataque del 51%</span>, y lograrlo hoy en redes grandes como Bitcoin o Ethereum es, básicamente, ciencia ficción.</p>
+            
+            <div class="warning-box">
+                <div class="box-header">
+                    <i class="ri-error-warning-line"></i>
+                    <strong>¿Y en el futuro?</strong>
+                </div>
+                <div class="box-content">
+                    <p>Existe una amenaza teórica: las computadoras cuánticas. Pero toda la industria cripto ya está investigando algoritmos post-cuánticos. O sea: el paraguas se está abriendo antes de que llueva.</p>
+                </div>
+            </div>
+
+            <p><strong>¿Entonces me puedo quedar tranquilo?</strong><br>
+            Mientras uses redes blockchain grandes, mantengas tus claves privadas bien guardadas y no caigas en estafas de humanos (porque sí, lo más hackeable sigue siendo el usuario, no el sistema)... puedes dormir tranquilo. El muro está firme.</p>
+
+            <div class="chapter-divider"></div>
+
+            <h2><i class="ri-heart-line"></i> Epílogo: No es tecnología, es filosofía digital</h2>
+            <p>Después de recorrer bloques, muros, exploradores, mineros y hasta amenazas cuánticas, uno puede pensar que blockchain es solo una proeza técnica. Pero en el fondo, esto va mucho más allá de los cables, los códigos y los gráficos de velitas.<br>
+            Blockchain es una idea. Una forma distinta de confiar.</p>
+            <p>Durante siglos, pusimos la confianza en estructuras verticales: el rey, el banco, la empresa, el "experto". Creíamos porque no nos quedaba otra. Hoy, blockchain nos propone algo radical: confiar en un sistema donde nadie manda, pero todos deciden.</p>
+            
+            <div class="pull-quote">
+                Una especie de anarquía ordenada, donde las reglas están en el código, y ese código no es secreto, ni exclusivo, ni manipulable.
+            </div>
+
+            <p>Sí, hay ruido, estafas, errores humanos y promesas exageradas. Como en cualquier revolución. Pero también hay algo hermoso: la posibilidad de que cada persona pueda ser su propio banco, su propio notario, su propio testigo. No por desconfianza, sino por diseño.</p>
+            <p>Así que la próxima vez que escuches "blockchain", no lo pienses solo como una tecnología. Piénsalo como una semilla: una que puede crecer en billeteras, contratos, arte digital, gobernanza… y también en tu cabeza.<br>
+            Porque si entendiste esto sin que te explote el cerebro, entonces estás listo para el siguiente bloque.</p>
+
+            <!-- Rincón del Hunter -->
+            <div class="quote-box" style="margin-top: 2.5rem; padding: 1.5rem; background: rgba(0, 212, 255, 0.04); border-radius: 10px; border-left: 3px solid var(--acento-cian);">
+                <h3><i class="ri-compass-3-line" style="margin-right:0.5rem; vertical-align:middle; font-size:1.2rem;"></i> 🧠 Rincón del Hunter</h3>
+                <p>"Cuando entendemos blockchain sin que nos explote la cabeza, no solo ganamos conocimiento: recuperamos el derecho a confiar sin pedir permiso. Porque hay muros que no se levantan para ocultar, sino para que todos podamos mirar."</p>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- SECCIÓN DE FUENTES RECOMENDADAS            -->
+            <!-- ========================================== -->
+            <div class="sources-section">
+                <h3><i class="ri-book-open-line"></i> 📚 Fuentes recomendadas</h3>
+                <ul>
+                    <li><a href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener">Bitcoin Whitepaper (documento original)</a></li>
+                    <li><a href="https://ethereum.org/es/developers/docs/intro-to-ethereum/" target="_blank" rel="noopener">Introducción a Ethereum</a></li>
+                    <li><a href="https://www.blockchain.com/explorer" target="_blank" rel="noopener">Blockchain.com Explorer</a></li>
+                    <li><a href="https://etherscan.io/" target="_blank" rel="noopener">Etherscan - Explorador de Ethereum</a></li>
+                </ul>
+            </div>
+
+            <!-- Navegación inferior -->
+            <div class="tutorial-nav">
+                <a href="que-es-una-criptomoneda.html" class="btn-secondary-tutorial"><i class="ri-arrow-left-line"></i> Anterior: ¿Qué es una criptomoneda?</a>
+                <a href="#" class="btn-secondary-tutorial" style="pointer-events: none; opacity: 0.6;">
+                    Próximo tutorial → (Próximamente) <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- PIE DE PÁGINA                              -->
+    <!-- ========================================== -->
+    <footer class="footer">
+        <p>&copy; 2026 Cripto <span>Faucets</span> Hunters. Todos los derechos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Aprende, gana y crece en el mundo crypto 🚀</p>
+        <p style="margin-top: 0.3rem; font-size: 0.8rem; color: var(--texto-secundario); opacity: 0.8;">
+            Última actualización: Mayo 2026
+        </p>
+    </footer>
+
+    <!-- Botón flotante "Volver al inicio" -->
+    <button id="scrollToTopBtn" aria-label="Volver al inicio" title="Volver al inicio">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+
+    <!-- Carga única del JavaScript centralizado (ruta con ../ porque estamos en subcarpeta) -->
+    <script src="../js/script.js"></script>
+</body>
+</html>
